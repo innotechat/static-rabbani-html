@@ -454,6 +454,7 @@
                     </div>
                 </div>
 
+                <!-- ... existing code ... -->
                 <!-- Landscaped Podium Garden -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
@@ -468,6 +469,93 @@
             </div>
         </div>
     </section>
+
+    <!-- INTERACTIVE FLOOR PLAN EXPLORER SECTION -->
+    <section id="floorplans" class="py-24 px-6 relative border-t border-gold-500/20 bg-gradient-to-b from-obsidian via-navy-950 to-obsidian">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-xs font-bold text-gold-400 tracking-widest uppercase mb-2">Architectural Perfection & Spatial Mastery</div>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Interactive Floor Plans & Layouts</h2>
+                <p class="text-slate-300 font-light text-sm leading-relaxed">
+                    Meticulously planned luxury residences with optimal cross-ventilation, expansive private balcony decks, zero-space wastage, and modular layouts. Select a configuration below to explore detailed dimensions.
+                </p>
+
+                <!-- Interactive Tab Switchers -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mt-8 p-1.5 glass-card rounded-xl border border-gold-500/30 inline-flex">
+                    <button id="btn-1bhk" onclick="switchFloorPlan('1bhk')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-gold-500 text-black shadow-lg">
+                        1 BHK (510 / 536 / 559 SFT)
+                    </button>
+                    <button id="btn-2bhk" onclick="switchFloorPlan('2bhk')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white">
+                        2 BHK Executive (720 / 746 / 772 SFT)
+                    </button>
+                    <button id="btn-combined" onclick="switchFloorPlan('combined')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white">
+                        3 BHK / Combined (1,230 / 1,294 / 1,308 SFT)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Floor Plan Display Stage -->
+            <div class="glass-card p-6 sm:p-10 rounded-2xl border border-gold-500/30 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Floor Plan 3D Render Display -->
+                <div class="lg:col-span-7 relative group">
+                    <div class="w-full h-auto bg-obsidian/90 rounded-xl p-4 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden">
+                        <img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[500px] w-auto object-contain rounded transition-all duration-500 hover:scale-105">
+                    </div>
+                    <div class="absolute top-6 left-6 px-3 py-1 bg-black/80 backdrop-blur-md rounded border border-gold-500/40 text-[11px] text-gold-400 font-bold uppercase tracking-wider" id="plan-tag">
+                        Compact Luxury
+                    </div>
+                </div>
+
+                <!-- Detailed Spatial Specifications -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <h3 id="plan-title" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+                            1 BHK Residence (510 / 536 / 559 SFT)
+                        </h3>
+                        <p id="plan-desc" class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Architecturally optimized single-bedroom layout with 3'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.
+                        </p>
+                    </div>
+
+                    <!-- Room Dimension Cards Grid -->
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-slate-800 flex items-center justify-between">
+                            <span class="text-slate-400 font-medium">Grand Living & Dining Room:</span>
+                            <span id="dim-living" class="text-gold-400 font-bold font-mono text-sm">10'0" x 19'10"</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-slate-800 flex items-center justify-between">
+                            <span class="text-slate-400 font-medium">Master Bedroom Suite:</span>
+                            <span id="dim-bed1" class="text-gold-400 font-bold font-mono text-sm">10'0" x 12'2"</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-slate-800 flex items-center justify-between">
+                            <span class="text-slate-400 font-medium">Chef's Modular Kitchen:</span>
+                            <span id="dim-kitchen" class="text-gold-400 font-bold font-mono text-sm">7'7" x 8'10"</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-slate-800 flex items-center justify-between">
+                            <span class="text-slate-400 font-medium">Private Deck Width:</span>
+                            <span id="dim-deck" class="text-gold-400 font-bold font-mono text-sm">3'9" Balcony Deck</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-obsidian border border-slate-800 flex items-center justify-between">
+                            <span class="text-slate-400 font-medium">Bathroom Configurations:</span>
+                            <span id="dim-bath" class="text-gold-400 font-bold font-mono text-sm">2 Bathrooms (7'3" x 4'3")</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between gap-4">
+                        <button onclick="openBrochureModal()" class="flex-1 py-3 text-center text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-gold-400 to-gold-600 rounded-lg hover:brightness-110 shadow-lg shadow-gold-500/20 transition-all">
+                            Request Pricing & Availability
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPREHENSIVE FACILITIES, SAFETY & OPERATIONAL BRIEF -->
+    <section id="facilities" class="py-24 px-6 relative border-t border-gold-500/20 bg-obsidian">
+<!-- ... existing code -->
 
     <!-- COMPREHENSIVE FACILITIES, SAFETY & OPERATIONAL BRIEF -->
     <section id="facilities" class="py-24 px-6 relative border-t border-gold-500/20 bg-obsidian">
