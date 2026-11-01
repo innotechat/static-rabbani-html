@@ -1104,14 +1104,18 @@
             closeBrochureModal();
         }
 
+      <!-- ... existing code ... -->
         // Document Viewer Modal Controls
         function viewDoc(title, url) {
             const modal = document.getElementById('doc-modal');
             const modalTitle = document.getElementById('doc-modal-title');
             const iframe = document.getElementById('doc-iframe');
+            const externalLink = document.getElementById('doc-external-link');
+
             if (!modal || !iframe) return;
 
             if (modalTitle) modalTitle.innerText = title;
+            if (externalLink) externalLink.href = url;
             iframe.src = url;
 
             modal.classList.remove('hidden');
@@ -1131,6 +1135,11 @@
                 if (iframe) iframe.src = '';
             }, 300);
         }
+
+        // Attach functions to global window scope so buttons can click them anytime
+        window.viewDoc = viewDoc;
+        window.closeDocModal = closeDocModal;
+<!-- ... existing code ... -->
 
         // Expose functions globally to ensure inline onclick listeners work cleanly
         window.calculateEMI = calculateEMI;
