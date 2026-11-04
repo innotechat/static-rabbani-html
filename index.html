@@ -197,8 +197,7 @@
                         <div class="text-[10px] text-gold-400 mt-0.5">34 Units (13 Retail / 21 Shops)</div>
                     </div>
                     <div class="p-4 rounded-xl bg-navy-950/80 border border-slate-800">
-                        <div class="text-slate-400 font-medium">Internalized Parking</div>
-                        <div class="text-sm font-bold text-white mt-1">6 Podium Levels</div>
+                        <div class="text-slate-400 font-medium">Internalized Parking</div>                        <div class="text-sm font-bold text-white mt-1">6 Podium Levels</div>
                         <div class="text-[10px] text-gold-400 mt-0.5">199 Bays + 25% EV Charging</div>
                     </div>
                 </div>
@@ -397,7 +396,6 @@
                         <p class="text-xs text-slate-400 mt-1">Safe anti-microbial padded play zones, ball pits, and learning desks.</p>
                     </div>
                 </div>
-
                 <!-- Industrial Laundromat -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
@@ -597,8 +595,7 @@
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-4">
                             <i data-lucide="cpu" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">4. Smart Building Services</h3>
+                        </div>                        <h3 class="font-bold text-white text-base mb-2">4. Smart Building Services</h3>
                         <ul class="text-xs text-slate-400 space-y-2">
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold-400"></i> 200 KLD MBBR Sewage Treatment Plant</li>
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold-400"></i> Rooftop Solar PV & 25% EV Charging</li>
@@ -684,34 +681,17 @@
         </div>
     </section>
 
-    <!-- FINANCIAL & MORTGAGE ESTIMATOR -->
-    <section class="py-20 px-6 bg-navy-950/90 border-t border-gold-500/10">
-        <div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-2xl border border-gold-500/30 text-center">
-            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white mb-2">Interactive Investment Calculator</h3>
-            <p class="text-xs text-slate-400 mb-8">Estimate your monthly home loan installments for Rabbani Tower residences.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-8 text-xs">
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Property Value: <strong id="prop-val-text" class="text-gold-400 font-bold">₹ 1.80 Cr</strong></label>
-                    <input type="range" id="prop-val" min="12000000" max="60000000" step="1000000" value="18000000" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Down Payment: <strong id="down-pay-text" class="text-gold-400 font-bold">₹ 36.00 Lakh</strong></label>
-                    <input type="range" id="down-pay" min="10" max="50" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Tenure: <strong id="tenure-text" class="text-gold-400 font-bold">20 Years</strong></label>
-                    <input type="range" id="tenure" min="5" max="30" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-            </div>
-
-            <div class="p-6 rounded-xl bg-obsidian border border-slate-800 max-w-md mx-auto">
-                <div class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Estimated Monthly Installment (EMI)</div>
-                <div id="emi-result" class="font-serif text-3xl font-bold text-gold-400 mt-1">₹ 1,24,960</div>
-                <div class="text-[10px] text-slate-500 mt-1">Calculated at benchmark 8.5% p.a. bank interest rate.</div>
-            </div>
-        </div>
-    </section>
+    <section id="calculator" class="py-20 px-6 bg-navy-950/90 border-t border-gold-500/10"><div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10"><span class="text-xs font-bold text-gold-400 uppercase tracking-widest">Plan Your Purchase</span><h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Home Loan & Affordability Calculator</h2><p class="text-sm text-slate-400 mt-3">Adjust property value, down payment, interest rate and tenure to estimate your monthly commitment.</p></div>
+      <div class="glass-card p-6 sm:p-9 rounded-2xl border border-gold-500/30 grid grid-cols-1 lg:grid-cols-2 gap-8"><div class="space-y-7 text-sm">
+        <div><div class="flex justify-between mb-2"><label for="prop-val" class="text-slate-300">Property value</label><strong id="prop-val-text" class="text-gold-400">₹1.80 Cr</strong></div><input type="range" id="prop-val" min="5000000" max="100000000" step="500000" value="18000000" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>₹50 Lakh</span><span>₹10 Cr</span></div></div>
+        <div><div class="flex justify-between mb-2"><label for="down-pay" class="text-slate-300">Down payment</label><strong id="down-pay-text" class="text-gold-400">₹36.00 Lakh (20%)</strong></div><input type="range" id="down-pay" min="10" max="80" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>10%</span><span>80%</span></div></div>
+        <div><label for="interest-rate" class="block text-slate-300 mb-2">Annual interest rate (editable)</label><div class="flex items-center gap-3"><input type="number" id="interest-rate" min="0" max="25" step="0.1" value="8.5" oninput="calculateEMI()" class="w-32 px-3 py-2 rounded-lg bg-obsidian border border-slate-700 text-white"><span class="text-slate-400">% p.a.</span></div></div>
+        <div><div class="flex justify-between mb-2"><label for="tenure" class="text-slate-300">Loan tenure</label><strong id="tenure-text" class="text-gold-400">20 Years</strong></div><input type="range" id="tenure" min="5" max="30" step="1" value="20" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>5 years</span><span>30 years</span></div></div>
+        <p class="text-[11px] text-slate-500 leading-relaxed">Estimate only. Actual eligibility, lender rate, processing fees, taxes, stamp duty and registration are separate and may change the final cost.</p></div>
+      <div class="space-y-4"><div class="p-6 rounded-xl bg-obsidian border border-gold-500/30 text-center"><div class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Estimated Monthly EMI</div><div id="emi-result" class="font-serif text-4xl sm:text-5xl font-bold text-gold-400 mt-2">₹1,24,960</div><div class="text-xs text-slate-500 mt-2">Indicative repayment estimate</div></div>
+      <div class="grid grid-cols-2 gap-3 text-xs"><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Loan amount</div><strong id="loan-amount" class="block text-white text-lg mt-1">₹1.44 Cr</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Down payment</div><strong id="down-payment-value" class="block text-white text-lg mt-1">₹36 Lakh</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Total interest</div><strong id="total-interest" class="block text-white text-lg mt-1">—</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Total loan repayment</div><strong id="total-payment" class="block text-white text-lg mt-1">—</strong></div></div>
+      <div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Principal</span><strong id="principal-share" class="text-white">—</strong></div><div class="h-3 rounded-full bg-slate-700 overflow-hidden flex"><div id="principal-bar" class="h-full bg-gold-500" style="width:50%"></div><div id="interest-bar" class="h-full bg-emerald-500" style="width:50%"></div></div><div class="flex justify-between text-[10px] text-slate-500 mt-2"><span>Principal</span><span id="interest-share">Interest —</span></div></div></div></div></div></section>
 
     <!-- RERA & REGULATORY DISCLOSURES HUB -->
     <section id="compliance" class="py-24 px-6 bg-navy-950/70 border-t border-gold-500/20">
@@ -797,8 +777,7 @@
                                         <stop offset="100%" stop-color="#8B6508" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M100 15 L125 45 V155 L100 175 L75 155 V45 Z" fill="none" stroke="url(#footerGoldGrad2)" stroke-width="4"/>
-                                <path d="M100 15 V175" stroke="url(#footerGoldGrad2)" stroke-width="3"/>
+                                <path d="M100 15 L125 45 V155 L100 175 L75 155 V45 Z" fill="none" stroke="url(#footerGoldGrad2)" stroke-width="4"/>                                <path d="M100 15 V175" stroke="url(#footerGoldGrad2)" stroke-width="3"/>
                                 <path d="M75 60 L100 75 L125 60" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M75 85 L100 100 L125 85" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M75 110 L100 125 L125 110" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
@@ -951,7 +930,7 @@
 
             // Loan Principal Calculation
             const principal = propVal - downPayVal;
-            const annualRate = 8.5; // Standard 8.5% benchmark interest
+            const annualRate = Number(document.getElementById('interest-rate')?.value || 0);
             const monthlyRate = (annualRate / 12) / 100;
             const months = tenureYears * 12;
 
@@ -997,8 +976,7 @@
                 title: '3 BHK / Combined Flat 01 & 02 (1,230 / 1,294 / 1,308 SFT)',
                 desc: 'Ultra-luxurious merged 3 BHK residence featuring dual living zones (21\'6" x 19\'9"), private executive study room, grand dining hall, and multi-bedroom suites.',
                 img: 'https://i.postimg.cc/C18yKdwT/combined2.jpg',
-                living: '21\'6" x 19\'9" (Combined Living/Dining)',
-                bed1: '10\'10" x 12\'4" & 10\'0" x 12\'2"',
+                living: '21\'6" x 19\'9" (Combined Living/Dining)',                bed1: '10\'10" x 12\'4" & 10\'0" x 12\'2"',
                 kitchen: '7\'7" x 10\'7"',
                 deck: '3\'9" Width (Extended Balcony Deck)',
                 bath: '3 Bathrooms + Dedicated Study (8\'10" x 7\'1")'
@@ -1119,10 +1097,28 @@
         window.handleFormSubmit = handleFormSubmit;
         window.viewDoc = viewDoc;
         window.closeDocModal = closeDocModal;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            calculateEMI();
-        });
+        function calculateEMI() {
+            const property = Number(document.getElementById('prop-val')?.value || 0);
+            const downPct = Number(document.getElementById('down-pay')?.value || 0);
+            const years = Number(document.getElementById('tenure')?.value || 0);
+            const annualRate = Number(document.getElementById('interest-rate')?.value || 0);
+            const downPayment = property * downPct / 100;
+            const principal = Math.max(0, property - downPayment);
+            const months = years * 12, rate = annualRate / 1200;
+            const emi = months ? (rate ? principal * rate * Math.pow(1 + rate, months) / (Math.pow(1 + rate, months) - 1) : principal / months) : 0;
+            const total = emi * months, interest = Math.max(0, total - principal);
+            const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+            const compact = n => n >= 1e7 ? '₹' + (n / 1e7).toFixed(2) + ' Cr' : n >= 1e5 ? '₹' + (n / 1e5).toFixed(2) + ' Lakh' : fmt(n);
+            const set = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+            set('prop-val-text',compact(property)); set('down-pay-text',compact(downPayment)+' ('+downPct+'%)'); set('tenure-text',years+' Years');
+            set('emi-result',fmt(emi)); set('loan-amount',compact(principal)); set('down-payment-value',compact(downPayment));
+            set('total-interest',compact(interest)); set('total-payment',compact(total));
+            const p=total?principal/total*100:0, i=total?interest/total*100:0;
+            set('principal-share',p.toFixed(1)+'%'); set('interest-share','Interest '+i.toFixed(1)+'%');
+            const pb=document.getElementById('principal-bar'), ib=document.getElementById('interest-bar');
+            if(pb)pb.style.width=p+'%'; if(ib)ib.style.width=i+'%';
+        }
+        document.addEventListener('DOMContentLoaded', calculateEMI);
     </script>
 </body>
 </html>
