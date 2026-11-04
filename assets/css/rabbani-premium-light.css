@@ -179,3 +179,19 @@ nav a[aria-label="Rabbani Tower home"] > div:last-child > div:last-child {
   #overview > .max-w-7xl > .max-w-4xl { text-align: left; }
   #overview .lg\\:col-span-7 .h-\\[480px\\] { height: 390px; }
 }
+
+/* Phase 3: unify photographic imagery with a restrained, natural luxury palette.
+   Floor plans remain untouched for drawing legibility and accurate colour rendering. */
+section:not(#floorplans) img {
+  filter: saturate(.76) contrast(.97) brightness(1.025);
+}
+section:not(#floorplans) img:hover {
+  filter: saturate(.84) contrast(.99) brightness(1.02);
+}
+#overview img {
+  filter: saturate(.72) contrast(.97) brightness(1.025);
+}
+#overview img:hover {
+  filter: saturate(.82) contrast(.99) brightness(1.02);
+}
+#floorplans img { filter: none !important; }
