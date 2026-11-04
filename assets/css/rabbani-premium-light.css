@@ -195,3 +195,101 @@ section:not(#floorplans) img:hover {
   filter: saturate(.82) contrast(.99) brightness(1.02);
 }
 #floorplans img { filter: none !important; }
+
+/* Phase 4: editorial image-led amenity presentation inspired by the supplied references */
+#wellness, #amenities, #rooftop, #facilities, #floorplans, #location {
+  background: var(--rt-bg) !important;
+}
+#wellness > .max-w-7xl > .text-center,
+#amenities > .max-w-7xl > .text-center,
+#facilities > .max-w-7xl > .text-center,
+#floorplans > .max-w-7xl > .text-center {
+  max-width: 850px;
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 3.25rem;
+}
+#wellness > .max-w-7xl > .text-center h2,
+#amenities > .max-w-7xl > .text-center h2,
+#facilities > .max-w-7xl > .text-center h2,
+#floorplans > .max-w-7xl > .text-center h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+#wellness .glass-card, #amenities .glass-card {
+  border: 0 !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+#wellness .glass-card > div:first-child,
+#amenities .glass-card > div:first-child {
+  height: 235px !important;
+  overflow: hidden;
+  background: #e9e5dc;
+}
+#wellness .glass-card > div:first-child img,
+#amenities .glass-card > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#wellness .glass-card > div:last-child,
+#amenities .glass-card > div:last-child {
+  padding: 1.15rem 0 1.6rem !important;
+}
+#wellness .glass-card h3, #amenities .glass-card h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+#wellness .glass-card p, #amenities .glass-card p {
+  font-size: .78rem;
+  line-height: 1.65;
+  max-width: 38rem;
+}
+#wellness .glass-card span, #amenities .glass-card span {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  letter-spacing: .14em;
+  color: #927342 !important;
+}
+#rooftop > .max-w-7xl { gap: clamp(2rem, 6vw, 5.5rem); }
+#rooftop img { min-height: 430px; object-fit: cover; }
+#rooftop .rounded-2xl { border: 0 !important; border-radius: 3px !important; box-shadow: none !important; }
+#rooftop h2 { font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height: 1.1; }
+#facilities .glass-card {
+  border: 1px solid var(--rt-line) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  background: rgba(255,254,250,.78) !important;
+}
+#facilities .glass-card > div:first-child > div:first-child {
+  background: #eee9df !important;
+  border-color: #e1d9ca !important;
+  color: #927342 !important;
+}
+#floorplans .glass-card {
+  border: 1px solid var(--rt-line) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+#floorplans .glass-card button { border-radius: 3px !important; }
+#floorplans .glass-card button.bg-gold-500 {
+  background: var(--rt-navy) !important;
+  color: #fff !important;
+}
+#floorplans #floorplan-image { filter: none !important; }
+#location .rounded-2xl { border-radius: 3px !important; }
+@media (min-width: 1024px) {
+  #wellness .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 { column-gap: 2.4rem; row-gap: 2.8rem; }
+  #amenities .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 { column-gap: 1.8rem; row-gap: 2.5rem; }
+}
+@media (max-width: 767px) {
+  #wellness .glass-card > div:first-child,
+  #amenities .glass-card > div:first-child { height: 220px !important; }
+  #rooftop img { min-height: 300px; height: 300px !important; }
+}
