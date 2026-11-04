@@ -1,0 +1,121 @@
+/* Rabbani Tower — Premium Light Theme Redesign
+   Visual layer only: preserves existing HTML sections, IDs, forms and JavaScript behaviour. */
+:root {
+  color-scheme: light;
+  --rt-bg: #f6f4ef;
+  --rt-surface: #fffefa;
+  --rt-surface-soft: #eeeae1;
+  --rt-ink: #202a35;
+  --rt-muted: #68727b;
+  --rt-navy: #172b43;
+  --rt-gold: #aa8b55;
+  --rt-gold-soft: #d5c19b;
+  --rt-line: #e4dfd4;
+  --rt-shadow: 0 18px 55px rgba(31, 43, 54, .09);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  background: var(--rt-bg) !important;
+  color: var(--rt-ink) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+body::selection { background: var(--rt-gold-soft); color: var(--rt-navy); }
+body .text-white { color: var(--rt-ink) !important; }
+body .text-slate-200, body .text-slate-300 { color: #4d5963 !important; }
+body .text-slate-400, body .text-slate-500 { color: var(--rt-muted) !important; }
+body .text-gold-400, body .text-gold-500 { color: #927342 !important; }
+body .bg-obsidian, body .bg-navy-950, body .bg-navy-900,
+body [class*="bg-navy-950/"], body [class*="bg-obsidian/"] {
+  background-color: var(--rt-surface) !important;
+}
+body [class*="bg-gradient-to-"], body [class*="bg-gradient-to-r"] {
+  background-image: none !important;
+  background-color: var(--rt-bg) !important;
+}
+body [class*="from-obsidian"], body [class*="via-navy"], body [class*="to-obsidian"] {
+  background-color: var(--rt-bg) !important;
+}
+body .glass-card {
+  background: rgba(255,254,250,.94) !important;
+  border: 1px solid var(--rt-line) !important;
+  box-shadow: var(--rt-shadow);
+  backdrop-filter: blur(14px);
+}
+body .glass-card-hover:hover {
+  border-color: var(--rt-gold-soft) !important;
+  box-shadow: 0 22px 48px rgba(31,43,54,.12);
+}
+body nav {
+  background: rgba(255,254,250,.94) !important;
+  border-color: var(--rt-line) !important;
+  box-shadow: 0 5px 24px rgba(31,43,54,.05);
+}
+body nav a, body nav button { color: var(--rt-navy); }
+body .border-gold-500\/20, body .border-gold-500\/15,
+body .border-gold-500\/10, body .border-slate-800,
+body [class*="border-gold-500/"] { border-color: var(--rt-line) !important; }
+body .gold-gradient-text {
+  background: none !important;
+  color: var(--rt-navy) !important;
+  -webkit-text-fill-color: var(--rt-navy) !important;
+}
+body .bg-gold-500\/10, body .bg-gold-500\/20 { background: #f1eadc !important; }
+body .bg-black\/80, body .bg-black\/85 { background: rgba(255,254,250,.97) !important; }
+body .bg-black { background: var(--rt-surface) !important; }
+body .text-black { color: #fff !important; }
+body .bg-gradient-to-r.from-gold-400,
+body [class*="from-gold-400"][class*="to-gold-600"] {
+  background: var(--rt-navy) !important;
+  color: #fff !important;
+}
+body a:hover { color: #927342; }
+body button, body a { transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+body section { border-color: var(--rt-line) !important; }
+body section h1, body section h2, body section h3 { color: var(--rt-navy) !important; }
+body section p { color: #59636d; }
+body .rounded-2xl, body .rounded-xl { border-color: var(--rt-line); }
+body input, body select, body textarea {
+  background: #fff !important;
+  color: var(--rt-ink) !important;
+  border-color: #d9d3c8 !important;
+}
+body input::placeholder { color: #89919a; }
+body footer { background: #172b43 !important; color: #f7f4ee !important; }
+body footer .text-white { color: #fff !important; }
+body footer .text-slate-400, body footer .text-slate-500 { color: #c5cbd0 !important; }
+body footer a:hover { color: #dfc99f !important; }
+body .custom-scrollbar::-webkit-scrollbar-track { background: var(--rt-bg); }
+body .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--rt-gold); }
+#theme-toggle { display: none !important; }
+/* Announcement strip */
+body > div:first-child {
+  background: var(--rt-navy) !important;
+  color: #f7f4ee !important;
+  border-color: rgba(213,193,155,.35) !important;
+}
+/* Hero: refined editorial proportions while retaining the existing building image. */
+#overview { padding-top: 5rem; padding-bottom: 5rem; }
+#overview .max-w-4xl { margin-bottom: 3.5rem; }
+#overview h1 { letter-spacing: -.035em; line-height: 1.08; }
+#overview .glass-card { border-radius: 1.15rem; }
+#overview img { filter: saturate(.88); }
+#overview .text-emerald-400 { color: #557b68 !important; }
+/* Image treatment: neutral, realistic presentation without artificial colour overlays. */
+section img { transition: transform .6s ease, filter .4s ease; }
+section img:hover { filter: saturate(.94); }
+#floorplans img { background: #fff; }
+#floorplans .glass-card { background: #fffefa !important; }
+#facilities .glass-card, #amenities .glass-card, #wellness .glass-card,
+#rooftop .glass-card { overflow: hidden; }
+#brochure-modal, #doc-modal, #floorplan-zoom { background: rgba(20,31,43,.82) !important; }
+#brochure-modal .glass-card, #doc-modal .glass-card { background: #fffefa !important; }
+@media (max-width: 767px) {
+  #overview { padding-top: 3rem; padding-bottom: 3rem; }
+  #overview h1 { font-size: clamp(2.35rem, 10vw, 3.5rem); }
+  section.py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+  body nav { padding-top: .8rem; padding-bottom: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
