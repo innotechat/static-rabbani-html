@@ -873,3 +873,38 @@ section:not(#overview):not(#floorplans) img:hover {
 #overview img,
 #floorplans img,
 #zoom-floorplan-image { filter: none !important; }
+
+/* Phase 12: image-specific colour grading.
+   Each asset gets a restrained treatment suited to its dominant materials and lighting. */
+section img[src*="outdoor-swimming-pool.webp"] { filter: saturate(.58) brightness(.98) contrast(.94) sepia(.02) !important; }
+section img[src*="indoor-swimming-pool.webp"] { filter: saturate(.50) brightness(.99) contrast(.94) sepia(.025) !important; }
+section img[src*="hydro-massage-jacuzzi.webp"] { filter: saturate(.48) brightness(.98) contrast(.93) sepia(.045) !important; }
+section img[src*="finnish-sauna.webp"] { filter: saturate(.62) brightness(.98) contrast(.95) sepia(.075) !important; }
+section img[src*="steam-room.webp"] { filter: saturate(.42) brightness(1) contrast(.92) sepia(.035) !important; }
+section img[src*="reception.webp"] { filter: saturate(.49) brightness(.98) contrast(.94) sepia(.065) !important; }
+section img[src*="rooftop.webp"] { filter: saturate(.52) brightness(.98) contrast(.94) sepia(.04) !important; }
+section img[src*="golf-club.webp"] { filter: saturate(.50) brightness(.98) contrast(.93) sepia(.025) !important; }
+section img[src*="billiards.webp"] { filter: saturate(.48) brightness(.97) contrast(.94) sepia(.045) !important; }
+section img[src*="home-theatre.webp"] { filter: saturate(.42) brightness(.97) contrast(.95) sepia(.04) !important; }
+section img[src*="conference-room.webp"] { filter: saturate(.47) brightness(.99) contrast(.94) sepia(.045) !important; }
+section img[src*="kids-zone.webp"] { filter: saturate(.56) brightness(.99) contrast(.93) sepia(.02) !important; }
+section img[src*="laundry.webp"] { filter: saturate(.44) brightness(.98) contrast(.93) sepia(.025) !important; }
+section img[src*="carwash.webp"] { filter: saturate(.47) brightness(.98) contrast(.94) sepia(.015) !important; }
+section img[src*="courtyard.webp"] { filter: saturate(.57) brightness(.99) contrast(.93) sepia(.025) !important; }
+
+/* Keep hover treatment subtle and consistent with each asset's base grade. */
+section img[src*="outdoor-swimming-pool.webp"]:hover { filter: saturate(.61) brightness(.99) contrast(.95) sepia(.02) !important; }
+section img[src*="indoor-swimming-pool.webp"]:hover { filter: saturate(.53) brightness(1) contrast(.95) sepia(.025) !important; }
+section img[src*="hydro-massage-jacuzzi.webp"]:hover { filter: saturate(.51) brightness(.99) contrast(.94) sepia(.045) !important; }
+section img[src*="finnish-sauna.webp"]:hover { filter: saturate(.65) brightness(.99) contrast(.96) sepia(.075) !important; }
+section img[src*="steam-room.webp"]:hover { filter: saturate(.45) brightness(1.01) contrast(.93) sepia(.035) !important; }
+section img[src*="reception.webp"]:hover { filter: saturate(.52) brightness(.99) contrast(.95) sepia(.065) !important; }
+section img[src*="rooftop.webp"]:hover { filter: saturate(.55) brightness(.99) contrast(.95) sepia(.04) !important; }
+section img[src*="golf-club.webp"]:hover { filter: saturate(.53) brightness(.99) contrast(.94) sepia(.025) !important; }
+section img[src*="billiards.webp"]:hover { filter: saturate(.51) brightness(.98) contrast(.95) sepia(.045) !important; }
+section img[src*="home-theatre.webp"]:hover { filter: saturate(.45) brightness(.98) contrast(.96) sepia(.04) !important; }
+section img[src*="conference-room.webp"]:hover { filter: saturate(.50) brightness(1) contrast(.95) sepia(.045) !important; }
+section img[src*="kids-zone.webp"]:hover { filter: saturate(.59) brightness(1) contrast(.94) sepia(.02) !important; }
+section img[src*="laundry.webp"]:hover { filter: saturate(.47) brightness(.99) contrast(.94) sepia(.025) !important; }
+section img[src*="carwash.webp"]:hover { filter: saturate(.50) brightness(.99) contrast(.95) sepia(.015) !important; }
+section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) contrast(.94) sepia(.025) !important; }
