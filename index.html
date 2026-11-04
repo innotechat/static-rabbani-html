@@ -73,6 +73,15 @@
             background: #D4AF37;
             border-radius: 3px;
         }
+        body[data-theme="light"] { background:#f5f1e8; color:#1f2937; }
+        body[data-theme="light"] .text-white { color:#172033 !important; }
+        body[data-theme="light"] .text-slate-300 { color:#475569 !important; }
+        body[data-theme="light"] .text-slate-400, body[data-theme="light"] .text-slate-500 { color:#64748b !important; }
+        body[data-theme="light"] .bg-obsidian, body[data-theme="light"] .bg-navy-950 { background-color:#fffdf8 !important; }
+        body[data-theme="light"] .glass-card { background:rgba(255,253,248,.92); border-color:rgba(170,124,17,.25); }
+        body[data-theme="light"] .border-slate-800 { border-color:#ded6c8 !important; }
+        body[data-theme="light"] nav { background:rgba(255,253,248,.96); }
+        body[data-theme="light"] .gold-gradient-text { background-image:linear-gradient(135deg,#8b6508,#aa7c11,#6d5010); }
     </style>
 </head>
 <body class="overflow-x-hidden custom-scrollbar selection:bg-gold-500 selection:text-black">
@@ -100,6 +109,7 @@
   <div class="hidden xl:flex items-center gap-3 2xl:gap-4 text-xs 2xl:text-sm font-medium text-slate-300 whitespace-nowrap">
    <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a><a href="#wellness" class="hover:text-gold-400 transition-colors">Wellness</a><a href="#rooftop" class="hover:text-gold-400 transition-colors">Rooftop</a><a href="#amenities" class="hover:text-gold-400 transition-colors">Lifestyle</a><a href="#floorplans" class="hover:text-gold-400 transition-colors">Residences</a><a href="#location" class="hover:text-gold-400 transition-colors">Location</a><a href="#compliance" class="hover:text-gold-400 transition-colors">Legal & RERA</a>
   </div>
+  <button id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" class="shrink-0 px-3 py-2 rounded-lg border border-gold-500/40 text-gold-400 text-xs font-semibold" onclick="toggleTheme()"><span id="theme-toggle-label">Light</span></button>
   <details class="relative xl:hidden shrink-0">
    <summary class="list-none cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition-colors" aria-label="Open website navigation"><i data-lucide="menu" class="w-5 h-5"></i><span class="text-xs font-semibold uppercase tracking-wider hidden sm:inline">Menu</span></summary>
    <div class="absolute right-0 top-full mt-3 w-[min(88vw,320px)] max-h-[75vh] overflow-y-auto rounded-xl border border-gold-500/30 bg-navy-950 shadow-2xl p-3 flex flex-col gap-1 z-[60]">
@@ -465,9 +475,7 @@
                 
                 <!-- Floor Plan 3D Render Display -->
                 <div class="lg:col-span-7 relative group">
-                    <div class="w-full h-auto bg-obsidian/90 rounded-xl p-4 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden">
-                        <img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[500px] w-auto object-contain rounded transition-all duration-500 hover:scale-105">
-                    </div>
+                    <button type="button" onclick="openFloorPlanZoom()" aria-label="Zoom floor plan" class="relative w-full min-h-[420px] lg:min-h-[650px] bg-obsidian/90 rounded-xl p-3 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden cursor-zoom-in group"><img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[650px] w-full object-contain rounded transition-transform duration-300 group-hover:scale-[1.02]"><span class="absolute bottom-5 right-5 px-3 py-2 rounded-lg bg-black/80 text-white text-xs border border-gold-500/40">Tap to enlarge</span></button>
                     <div class="absolute top-6 left-6 px-3 py-1 bg-black/80 backdrop-blur-md rounded border border-gold-500/40 text-[11px] text-gold-400 font-bold uppercase tracking-wider" id="plan-tag">
                         Compact Luxury
                     </div>
@@ -476,9 +484,7 @@
                 <!-- Detailed Spatial Specifications -->
                 <div class="lg:col-span-5 space-y-6">
                     <div>
-                        <h3 id="plan-title" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
-                            1 BHK Residence (510 / 536 / 559 SFT)
-                        </h3>
+                        <h3 id="plan-title" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">1 BHK Residence</h3><div class="mt-3 p-4 rounded-xl bg-obsidian border border-gold-500/25"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Listed size variants (sq. ft.)</div><div id="plan-area-variants" class="flex flex-wrap gap-2 text-gold-400 font-semibold">510 · 536 · 559</div><p class="text-[10px] text-slate-500 mt-2">Measurement basis to be confirmed against approved project documentation.</p></div>
                         <p id="plan-desc" class="text-xs text-slate-400 mt-2 leading-relaxed">
                             Architecturally optimized single-bedroom layout with 3'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.
                         </p>
@@ -760,6 +766,8 @@
         </div>
     </section>
 
+    <div id="floorplan-zoom" class="fixed inset-0 z-[70] hidden bg-black/95 p-3 sm:p-6" role="dialog" aria-modal="true" aria-label="Enlarged floor plan"><div class="max-w-7xl mx-auto h-full flex flex-col"><div class="flex items-center justify-between text-white mb-3"><strong id="zoom-plan-title">Floor Plan</strong><button type="button" onclick="closeFloorPlanZoom()" class="px-4 py-2 rounded-lg border border-gold-500/40 text-gold-300">Close ✕</button></div><div class="flex-1 min-h-0 flex items-center justify-center"><img id="zoom-floorplan-image" src="" alt="Enlarged floor plan" class="max-w-full max-h-full object-contain"></div><p class="text-center text-xs text-slate-400 mt-3">Confirm final dimensions and area basis from approved plans.</p></div></div>
+
     <!-- FOOTER -->
     <footer id="contact" class="py-20 px-6 border-t border-gold-500/20 bg-obsidian">
         <div class="max-w-7xl mx-auto">
@@ -797,10 +805,8 @@
                     </p>
 
                     <div class="text-xs text-slate-300 space-y-1">
-                        <div><strong>Direct Sales Helpline:</strong> 022 20885252</div>
-                        <div><strong>Primary Information Email:</strong> <a href="mailto:info@rabbanitower.com" class="text-gold-400 underline">info@rabbanitower.com</a></div>
-                        <div><strong>Audit & Developer Desk:</strong> <a href="mailto:pbuildersaudit@gmail.com" class="text-gold-400 hover:underline">pbuildersaudit@gmail.com</a></div>
-                        <div><strong>Official Web Portal:</strong> <a href="http://www.rajbuilders.in" target="_blank" class="text-gold-400 hover:underline">www.rajbuilders.in</a></div>
+                        <div><strong>Direct Sales Helpline:</strong> <a href="tel:+918533899999" class="text-gold-400 hover:underline">+91 8533899999</a></div>
+                        <div><strong>Official Email:</strong> <a href="mailto:info@rabbanitower.com" class="text-gold-400 underline">info@rabbanitower.com</a></div>
                     </div>
                 </div>
 
@@ -861,7 +867,7 @@
                     <i data-lucide="file-text" class="w-6 h-6"></i>
                 </div>
                 <h3 class="font-serif text-2xl font-bold text-white">Request Official Catalogue</h3>
-                <p class="text-xs text-slate-400 mt-1">Your email application will open with the enquiry addressed to <strong>info@rabbanitower.com</strong> (CC: innotechat@gmail.com).</p>
+                <p class="text-xs text-slate-400 mt-1">Your email application will open with the enquiry addressed to <strong>info@rabbanitower.com</strong>.</p>
             </div>
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
                 <div>
@@ -951,8 +957,9 @@
         const floorPlanData = {
             '1bhk': {
                 tag: 'Compact Luxury',
-                title: '1 BHK Residence (510 / 536 / 559 SFT)',
-                desc: 'Architectually optimized single-bedroom layout with 3\'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.',
+                title: '1 BHK Residence',
+                areas: ['510', '536', '559'],
+                desc: 'Architecturally optimized single-bedroom layout with 3\'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.',
                 img: 'https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg',
                 living: '10\'0" x 19\'10"',
                 bed1: '10\'0" x 12\'2"',
@@ -962,7 +969,8 @@
             },
             '2bhk': {
                 tag: 'Executive Family Space',
-                title: '2 BHK Executive Suite (720 / 746 / 772 SFT)',
+                title: '2 BHK Executive Suite',
+                areas: ['720', '746', '772'],
                 desc: 'Expansive 2 Bedroom suite with dedicated dining alcove, twin balcony decks, master ensuite bath, and smoke/fireman lobby access.',
                 img: 'https://i.postimg.cc/4dcC3nXC/floorplan-2bhk.jpg',
                 living: '11\'0" x 18\'6" / 11\'0" x 19\'9"',
@@ -973,7 +981,8 @@
             },
             'combined': {
                 tag: 'Presidential Penthouse Style',
-                title: '3 BHK / Combined Flat 01 & 02 (1,230 / 1,294 / 1,308 SFT)',
+                title: '3 BHK / Combined Flat 01 & 02',
+                areas: ['1,230', '1,294', '1,308'],
                 desc: 'Ultra-luxurious merged 3 BHK residence featuring dual living zones (21\'6" x 19\'9"), private executive study room, grand dining hall, and multi-bedroom suites.',
                 img: 'https://i.postimg.cc/C18yKdwT/combined2.jpg',
                 living: '21\'6" x 19\'9" (Combined Living/Dining)',                bed1: '10\'10" x 12\'4" & 10\'0" x 12\'2"',
@@ -1002,11 +1011,15 @@
             const titleEl = document.getElementById('plan-title');
             const descEl = document.getElementById('plan-desc');
             const imgEl = document.getElementById('floorplan-image');
+            const areaEl = document.getElementById('plan-area-variants');
 
             if (tagEl) tagEl.innerText = data.tag;
             if (titleEl) titleEl.innerText = data.title;
             if (descEl) descEl.innerText = data.desc;
             if (imgEl) imgEl.src = data.img;
+            const zoomImg=document.getElementById('zoom-floorplan-image'); if(zoomImg)zoomImg.src=data.img;
+            const zoomTitle=document.getElementById('zoom-plan-title'); if(zoomTitle)zoomTitle.textContent=data.title;
+            if(areaEl)areaEl.textContent=data.areas.join('  /  ');
 
             const dimLiving = document.getElementById('dim-living');
             const dimBed1 = document.getElementById('dim-bed1');
@@ -1021,6 +1034,11 @@
             if (dimBath && data.bath) dimBath.innerText = data.bath;
         }
 
+        function openFloorPlanZoom(){const source=document.getElementById('floorplan-image'),modal=document.getElementById('floorplan-zoom'),target=document.getElementById('zoom-floorplan-image');if(!source||!modal||!target)return;target.src=source.src;document.getElementById('zoom-plan-title').textContent=document.getElementById('plan-title')?.textContent||'Floor Plan';modal.classList.remove('hidden');document.body.style.overflow='hidden';}
+        function closeFloorPlanZoom(){document.getElementById('floorplan-zoom')?.classList.add('hidden');document.body.style.overflow='';}
+        function applyTheme(theme){const light=theme==='light';document.body.dataset.theme=light?'light':'dark';const button=document.getElementById('theme-toggle'),label=document.getElementById('theme-toggle-label');if(button){button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');}if(label)label.textContent=light?'Dark':'Light';}
+        function toggleTheme(){const next=document.body.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('rabbani-theme',next);}catch(e){}applyTheme(next);}
+        function initializeTheme(){let saved=null;try{saved=localStorage.getItem('rabbani-theme');}catch(e){}applyTheme(saved||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));}
         // Brochure Modal Controls
         function openBrochureModal() {
             const modal = document.getElementById('brochure-modal');
@@ -1048,7 +1066,7 @@
             const configuration = document.getElementById('form-config')?.value || 'Not specified';
             const subject = encodeURIComponent('Rabbani Tower Website Enquiry');
             const body = encodeURIComponent('New enquiry from Rabbani Tower website\\n\\nName: ' + name + '\\nPhone: ' + phone + '\\nEmail: ' + email + '\\nInterested configuration: ' + configuration + '\\n');
-            window.location.href = 'mailto:info@rabbanitower.com?cc=innotechat@gmail.com&subject=' + subject + '&body=' + body;
+            window.location.href = 'mailto:info@rabbanitower.com?subject=' + subject + '&body=' + body;
             closeBrochureModal();
         }
 
@@ -1118,7 +1136,8 @@
             const pb=document.getElementById('principal-bar'), ib=document.getElementById('interest-bar');
             if(pb)pb.style.width=p+'%'; if(ib)ib.style.width=i+'%';
         }
-        document.addEventListener('DOMContentLoaded', calculateEMI);
+        window.openFloorPlanZoom=openFloorPlanZoom; window.closeFloorPlanZoom=closeFloorPlanZoom; window.toggleTheme=toggleTheme;
+        document.addEventListener('DOMContentLoaded',()=>{initializeTheme();calculateEMI();switchFloorPlan('1bhk');});
     </script>
 </body>
 </html>
