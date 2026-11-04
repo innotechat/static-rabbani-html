@@ -84,61 +84,29 @@
     </div>
 
     <!-- Navigation Header -->
-    <nav class="sticky top-0 z-50 glass-card border-b border-gold-500/20 px-6 py-4 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="h-10 sm:h-12 w-[132px] sm:w-[160px] shrink-0 rounded-lg border border-gold-500/50 flex items-center justify-center bg-navy-950/90 group-hover:bg-gold-500/10 transition-all overflow-hidden p-1.5 shadow-lg shadow-gold-500/10">
-                    <!-- VPIL P DEVELOPER JOINT VENTURE LOGO -->
-                    <svg viewBox="0 0 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full object-contain">
-                        <defs>
-                            <linearGradient id="vpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFF1B0" />
-                                <stop offset="50%" stop-color="#D4AF37" />
-                                <stop offset="100%" stop-color="#AA7C11" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Top Arc Swoosh -->
-                        <path d="M 160 40 Q 250 5 430 40" stroke="url(#vpGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
-                        <!-- Bottom Arc Swoosh -->
-                        <path d="M 330 115 Q 180 145 110 100" stroke="url(#vpGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
-                        <!-- Text Elements -->
-                        <text x="35" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="52" fill="#FFFFFF" letter-spacing="2">VPIL</text>
-                        <text x="180" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="56" fill="url(#vpGrad)" letter-spacing="1">P</text>
-                        <text x="228" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="50" fill="#FFFFFF" letter-spacing="3">DEVELOPER</text>
-                        <!-- Joint Venture Subtitle -->
-                        <line x1="60" y1="102" x2="140" y2="102" stroke="url(#vpGrad)" stroke-width="2"/>
-                        <text x="155" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="8">JOINT VENTURE</text>
-                        <line x1="345" y1="102" x2="440" y2="102" stroke="url(#vpGrad)" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div>
-                    <div class="font-serif text-xl font-bold tracking-widest text-white uppercase group-hover:text-gold-400 transition-colors">Rabbani Tower</div>
-                    <div class="text-[10px] text-gold-500/80 tracking-widest uppercase">Byculla East • South Mumbai</div>
-                </div>
-            </a>
-
-            <!-- Desktop Links -->
-            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a>
-                <a href="#wellness" class="hover:text-gold-400 transition-colors">Wellness & Spa</a>
-                <a href="#rooftop" class="hover:text-gold-400 transition-colors">Rooftop Lounge</a>
-                <a href="#amenities" class="hover:text-gold-400 transition-colors">Lifestyle</a>
-                <a href="#facilities" class="hover:text-gold-400 transition-colors text-gold-400 font-semibold">Facilities Brief</a>
-                <a href="#floorplans" class="hover:text-gold-400 transition-colors">Floor Plans</a>
-                <a href="#location" class="hover:text-gold-400 transition-colors">Connectivity</a>
-                <a href="#compliance" class="hover:text-gold-400 transition-colors">Legal & RERA</a>
-            </div>
-
-            <!-- CTA Actions -->
-    <div class="flex items-center gap-4">
-        <button onclick="openBrochureModal()" class="hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold-400 border border-gold-500/40 rounded hover:bg-gold-500/10 transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i> Brochure
-        </button>
-        <a href="#contact" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-gold-400 to-gold-600 rounded hover:brightness-110 shadow-lg shadow-gold-500/20 transition-all">
-            Schedule Tour
-        </a>
-    </div>
-</div>
+<nav class="sticky top-0 z-50 glass-card border-b border-gold-500/20 px-4 sm:px-6 py-3 transition-all duration-300">
+ <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+  <a href="#overview" class="flex items-center gap-2 sm:gap-3 group min-w-0 shrink-0" aria-label="Rabbani Tower home">
+   <div class="h-9 sm:h-11 w-[108px] sm:w-[132px] shrink-0 rounded-lg border border-gold-500/50 flex items-center justify-center bg-navy-950/90 overflow-hidden p-1.5 shadow-lg shadow-gold-500/10">
+    <svg viewBox="0 0 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+     <defs><linearGradient id="vpGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFF1B0"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#AA7C11"/></linearGradient></defs>
+     <path d="M 160 40 Q 250 5 430 40" stroke="url(#vpGrad)" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M 330 115 Q 180 145 110 100" stroke="url(#vpGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+     <text x="35" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="52" fill="#FFFFFF" letter-spacing="2">VPIL</text><text x="180" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="56" fill="url(#vpGrad)">P</text><text x="228" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="50" fill="#FFFFFF" letter-spacing="3">DEVELOPER</text>
+     <line x1="60" y1="102" x2="140" y2="102" stroke="url(#vpGrad)" stroke-width="2"/><text x="155" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" letter-spacing="8">JOINT VENTURE</text><line x1="345" y1="102" x2="440" y2="102" stroke="url(#vpGrad)" stroke-width="2"/>
+    </svg>
+   </div>
+   <div class="min-w-0"><div class="font-serif text-base sm:text-lg xl:text-xl font-bold tracking-wider text-white uppercase whitespace-nowrap">Rabbani Tower</div><div class="text-[9px] sm:text-[10px] text-gold-500/80 tracking-wider uppercase whitespace-nowrap">Byculla East • South Mumbai</div></div>
+  </a>
+  <div class="hidden xl:flex items-center gap-3 2xl:gap-4 text-xs 2xl:text-sm font-medium text-slate-300 whitespace-nowrap">
+   <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a><a href="#wellness" class="hover:text-gold-400 transition-colors">Wellness</a><a href="#rooftop" class="hover:text-gold-400 transition-colors">Rooftop</a><a href="#amenities" class="hover:text-gold-400 transition-colors">Lifestyle</a><a href="#floorplans" class="hover:text-gold-400 transition-colors">Residences</a><a href="#location" class="hover:text-gold-400 transition-colors">Location</a><a href="#compliance" class="hover:text-gold-400 transition-colors">Legal & RERA</a>
+  </div>
+  <details class="relative xl:hidden shrink-0">
+   <summary class="list-none cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition-colors" aria-label="Open website navigation"><i data-lucide="menu" class="w-5 h-5"></i><span class="text-xs font-semibold uppercase tracking-wider hidden sm:inline">Menu</span></summary>
+   <div class="absolute right-0 top-full mt-3 w-[min(88vw,320px)] max-h-[75vh] overflow-y-auto rounded-xl border border-gold-500/30 bg-navy-950 shadow-2xl p-3 flex flex-col gap-1 z-[60]">
+    <a href="#overview" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Overview</a><a href="#wellness" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Wellness & Spa</a><a href="#rooftop" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Rooftop Lounge</a><a href="#amenities" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Lifestyle</a><a href="#facilities" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Facilities</a><a href="#floorplans" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Floor Plans</a><a href="#location" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Connectivity</a><a href="#compliance" class="px-4 py-3 rounded-lg text-sm text-slate-200 hover:bg-gold-500/10 hover:text-gold-400">Legal & RERA</a>
+   </div>
+  </details>
+ </div>
 </nav>
 
 <!-- PRIMARY HERO SECTION: STANDALONE TOWER ELEVATION & LOCATION SHOWCASE -->
@@ -552,10 +520,6 @@
             </div>
         </div>
     </section>
-
-    <!-- COMPREHENSIVE FACILITIES, SAFETY & OPERATIONAL BRIEF -->
-    <section id="facilities" class="py-24 px-6 relative border-t border-gold-500/20 bg-obsidian">
-<!-- ... existing code -->
 
     <!-- COMPREHENSIVE FACILITIES, SAFETY & OPERATIONAL BRIEF -->
     <section id="facilities" class="py-24 px-6 relative border-t border-gold-500/20 bg-obsidian">
