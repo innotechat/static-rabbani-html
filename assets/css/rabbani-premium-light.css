@@ -841,3 +841,13 @@ section:not(#overview):not(#floorplans) img:hover {
 #zoom-floorplan-image {
   filter: none !important;
 }
+
+/* Phase 9: calmer, less vivid photographic treatment */
+section:not(#overview):not(#floorplans) img {
+  filter: saturate(.58) brightness(.97) contrast(.94) !important;
+}
+section:not(#overview):not(#floorplans) img:hover {
+  filter: saturate(.62) brightness(.98) contrast(.95) !important;
+}
+#floorplans img,
+#zoom-floorplan-image { filter: none !important; }
