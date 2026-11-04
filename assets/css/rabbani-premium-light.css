@@ -851,3 +851,14 @@ section:not(#overview):not(#floorplans) img:hover {
 }
 #floorplans img,
 #zoom-floorplan-image { filter: none !important; }
+
+/* Phase 10: warm-neutral image grading to harmonise photography with ivory, stone and champagne palette.
+   This is a restrained display treatment, not a substitute for authentic source photography. */
+section:not(#overview):not(#floorplans) img {
+  filter: sepia(.075) saturate(.54) brightness(.96) contrast(.93) !important;
+}
+section:not(#overview):not(#floorplans) img:hover {
+  filter: sepia(.065) saturate(.58) brightness(.97) contrast(.94) !important;
+}
+#floorplans img,
+#zoom-floorplan-image { filter: none !important; }
