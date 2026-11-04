@@ -737,3 +737,94 @@ section:not(#floorplans) img:hover {
   #facilities .rt-facility-tiers { padding: 25px 20px; margin-top: 38px; gap: 24px; }
   #facilities .rt-tier-list { grid-template-columns: 1fr; }
 }
+
+/* Phase 7: improve header brand hierarchy and desktop readability */
+body nav {
+  min-height: 78px;
+  padding-left: clamp(14px, 2.4vw, 34px) !important;
+  padding-right: clamp(14px, 2.4vw, 34px) !important;
+}
+body nav > div {
+  width: 100%;
+  max-width: 1440px !important;
+  gap: clamp(10px, 1.5vw, 22px) !important;
+}
+body nav a[aria-label="Rabbani Tower home"] {
+  gap: 12px !important;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+body nav a[aria-label="Rabbani Tower home"] > div:first-child {
+  flex: 0 0 auto;
+  width: clamp(112px, 11vw, 158px) !important;
+  height: 44px !important;
+  padding: 4px !important;
+}
+body nav a[aria-label="Rabbani Tower home"] > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+body nav a[aria-label="Rabbani Tower home"] > div:last-child > div:first-child {
+  display: block;
+  color: #172b43 !important;
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: .045em !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+}
+body nav a[aria-label="Rabbani Tower home"] > div:last-child > div:last-child {
+  display: block;
+  color: #82663d !important;
+  font-size: clamp(9px, .78vw, 11px) !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  letter-spacing: .085em !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+}
+body nav > div > div.hidden.xl\\:flex {
+  color: #344454 !important;
+  gap: clamp(9px, 1vw, 16px) !important;
+  font-size: clamp(11px, .82vw, 13px) !important;
+}
+body nav > div > div.hidden.xl\\:flex a {
+  color: #344454 !important;
+  font-weight: 650 !important;
+}
+body nav details > summary {
+  color: #172b43 !important;
+  background: #f3efe7 !important;
+  border-color: #d8c9ad !important;
+}
+body nav details > div {
+  background: #fffefa !important;
+  border-color: #ded7c9 !important;
+  box-shadow: 0 18px 48px rgba(23,43,67,.16) !important;
+}
+body nav details > div a { color: #344454 !important; }
+@media (min-width: 768px) and (max-width: 1279px) {
+  body nav { min-height: 82px; }
+  body nav a[aria-label="Rabbani Tower home"] > div:first-child {
+    width: 136px !important;
+  }
+}
+@media (max-width: 767px) {
+  body nav { min-height: 68px; }
+  body nav a[aria-label="Rabbani Tower home"] { gap: 8px !important; }
+  body nav a[aria-label="Rabbani Tower home"] > div:first-child {
+    width: 106px !important;
+    height: 38px !important;
+  }
+  body nav a[aria-label="Rabbani Tower home"] > div:last-child > div:first-child {
+    font-size: 13px !important;
+  }
+  body nav a[aria-label="Rabbani Tower home"] > div:last-child > div:last-child {
+    font-size: 8px !important;
+    letter-spacing: .045em !important;
+  }
+}
