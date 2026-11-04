@@ -73,6 +73,17 @@
             background: #D4AF37;
             border-radius: 3px;
         }
+        body[data-theme="light"] { background:#f5f1e8; color:#1f2937; }
+        body[data-theme="light"] .text-white { color:#172033 !important; }
+        body[data-theme="light"] .text-slate-300 { color:#475569 !important; }
+        body[data-theme="light"] .text-slate-400, body[data-theme="light"] .text-slate-500 { color:#64748b !important; }
+        body[data-theme="light"] .bg-obsidian, body[data-theme="light"] .bg-navy-950, body[data-theme="light"] [class*="bg-navy-950/"] { background-color:#fffdf8 !important; }
+        body[data-theme="light"] [class*="from-obsidian"], body[data-theme="light"] [class*="via-navy-950"], body[data-theme="light"] [class*="to-obsidian"] { background-image:none !important; background-color:#f5f1e8 !important; }
+        body[data-theme="light"] .bg-black\/80, body[data-theme="light"] .bg-black\/85 { background-color:rgba(255,253,248,.95) !important; }
+        body[data-theme="light"] .glass-card { background:rgba(255,253,248,.92); border-color:rgba(170,124,17,.25); }
+        body[data-theme="light"] .border-slate-800 { border-color:#ded6c8 !important; }
+        body[data-theme="light"] nav { background:rgba(255,253,248,.96); }
+        body[data-theme="light"] .gold-gradient-text { background-image:linear-gradient(135deg,#8b6508,#aa7c11,#6d5010); }
     </style>
 </head>
 <body class="overflow-x-hidden custom-scrollbar selection:bg-gold-500 selection:text-black">
@@ -100,6 +111,7 @@
   <div class="hidden xl:flex items-center gap-3 2xl:gap-4 text-xs 2xl:text-sm font-medium text-slate-300 whitespace-nowrap">
    <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a><a href="#wellness" class="hover:text-gold-400 transition-colors">Wellness</a><a href="#rooftop" class="hover:text-gold-400 transition-colors">Rooftop</a><a href="#amenities" class="hover:text-gold-400 transition-colors">Lifestyle</a><a href="#floorplans" class="hover:text-gold-400 transition-colors">Residences</a><a href="#location" class="hover:text-gold-400 transition-colors">Location</a><a href="#compliance" class="hover:text-gold-400 transition-colors">Legal & RERA</a>
   </div>
+  <button id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" class="shrink-0 px-3 py-2 rounded-lg border border-gold-500/40 text-gold-400 text-xs font-semibold" onclick="toggleTheme()"><span id="theme-toggle-label">Light</span></button>
   <details class="relative xl:hidden shrink-0">
    <summary class="list-none cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg border border-gold-500/40 text-gold-400 hover:bg-gold-500/10 transition-colors" aria-label="Open website navigation"><i data-lucide="menu" class="w-5 h-5"></i><span class="text-xs font-semibold uppercase tracking-wider hidden sm:inline">Menu</span></summary>
    <div class="absolute right-0 top-full mt-3 w-[min(88vw,320px)] max-h-[75vh] overflow-y-auto rounded-xl border border-gold-500/30 bg-navy-950 shadow-2xl p-3 flex flex-col gap-1 z-[60]">
@@ -197,8 +209,7 @@
                         <div class="text-[10px] text-gold-400 mt-0.5">34 Units (13 Retail / 21 Shops)</div>
                     </div>
                     <div class="p-4 rounded-xl bg-navy-950/80 border border-slate-800">
-                        <div class="text-slate-400 font-medium">Internalized Parking</div>
-                        <div class="text-sm font-bold text-white mt-1">6 Podium Levels</div>
+                        <div class="text-slate-400 font-medium">Internalized Parking</div>                        <div class="text-sm font-bold text-white mt-1">6 Podium Levels</div>
                         <div class="text-[10px] text-gold-400 mt-0.5">199 Bays + 25% EV Charging</div>
                     </div>
                 </div>
@@ -397,7 +408,6 @@
                         <p class="text-xs text-slate-400 mt-1">Safe anti-microbial padded play zones, ball pits, and learning desks.</p>
                     </div>
                 </div>
-
                 <!-- Industrial Laundromat -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
@@ -451,13 +461,13 @@
                 <!-- Interactive Tab Switchers -->
                 <div class="flex flex-wrap items-center justify-center gap-3 mt-8 p-1.5 glass-card rounded-xl border border-gold-500/30 inline-flex">
                     <button id="btn-1bhk" onclick="switchFloorPlan('1bhk')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-gold-500 text-black shadow-lg">
-                        1 BHK (510 / 536 / 559 SFT)
+                        1 BHK · 510 / 536 / 559 sq. ft.
                     </button>
                     <button id="btn-2bhk" onclick="switchFloorPlan('2bhk')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white">
-                        2 BHK Executive (720 / 746 / 772 SFT)
+                        2 BHK · 720 / 746 / 772 sq. ft.
                     </button>
                     <button id="btn-combined" onclick="switchFloorPlan('combined')" class="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white">
-                        3 BHK / Combined (1,230 / 1,294 / 1,308 SFT)
+                        3 BHK Combined · 1,230 / 1,294 / 1,308 sq. ft.
                     </button>
                 </div>
             </div>
@@ -467,9 +477,7 @@
                 
                 <!-- Floor Plan 3D Render Display -->
                 <div class="lg:col-span-7 relative group">
-                    <div class="w-full h-auto bg-obsidian/90 rounded-xl p-4 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden">
-                        <img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[500px] w-auto object-contain rounded transition-all duration-500 hover:scale-105">
-                    </div>
+                    <button type="button" onclick="openFloorPlanZoom()" aria-label="Zoom floor plan" class="relative w-full min-h-[420px] lg:min-h-[650px] bg-obsidian/90 rounded-xl p-3 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden cursor-zoom-in group"><img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[650px] w-full object-contain rounded transition-transform duration-300 group-hover:scale-[1.02]"><span class="absolute bottom-5 right-5 px-3 py-2 rounded-lg bg-black/80 text-white text-xs border border-gold-500/40">Tap to enlarge</span></button>
                     <div class="absolute top-6 left-6 px-3 py-1 bg-black/80 backdrop-blur-md rounded border border-gold-500/40 text-[11px] text-gold-400 font-bold uppercase tracking-wider" id="plan-tag">
                         Compact Luxury
                     </div>
@@ -478,9 +486,7 @@
                 <!-- Detailed Spatial Specifications -->
                 <div class="lg:col-span-5 space-y-6">
                     <div>
-                        <h3 id="plan-title" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
-                            1 BHK Residence (510 / 536 / 559 SFT)
-                        </h3>
+                        <h3 id="plan-title" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">1 BHK Residence</h3><div class="mt-3 p-4 rounded-xl bg-obsidian border border-gold-500/25"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Listed size variants (sq. ft.)</div><div id="plan-area-variants" class="flex flex-wrap gap-2 text-gold-400 font-semibold">510 · 536 · 559</div><p class="text-[10px] text-slate-500 mt-2">Measurement basis to be confirmed against approved project documentation.</p></div>
                         <p id="plan-desc" class="text-xs text-slate-400 mt-2 leading-relaxed">
                             Architecturally optimized single-bedroom layout with 3'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.
                         </p>
@@ -597,8 +603,7 @@
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-4">
                             <i data-lucide="cpu" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">4. Smart Building Services</h3>
+                        </div>                        <h3 class="font-bold text-white text-base mb-2">4. Smart Building Services</h3>
                         <ul class="text-xs text-slate-400 space-y-2">
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold-400"></i> 200 KLD MBBR Sewage Treatment Plant</li>
                             <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-gold-400"></i> Rooftop Solar PV & 25% EV Charging</li>
@@ -684,34 +689,17 @@
         </div>
     </section>
 
-    <!-- FINANCIAL & MORTGAGE ESTIMATOR -->
-    <section class="py-20 px-6 bg-navy-950/90 border-t border-gold-500/10">
-        <div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-2xl border border-gold-500/30 text-center">
-            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white mb-2">Interactive Investment Calculator</h3>
-            <p class="text-xs text-slate-400 mb-8">Estimate your monthly home loan installments for Rabbani Tower residences.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-8 text-xs">
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Property Value: <strong id="prop-val-text" class="text-gold-400 font-bold">₹ 1.80 Cr</strong></label>
-                    <input type="range" id="prop-val" min="12000000" max="60000000" step="1000000" value="18000000" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Down Payment: <strong id="down-pay-text" class="text-gold-400 font-bold">₹ 36.00 Lakh</strong></label>
-                    <input type="range" id="down-pay" min="10" max="50" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-                <div>
-                    <label class="block text-slate-400 mb-2 font-medium">Tenure: <strong id="tenure-text" class="text-gold-400 font-bold">20 Years</strong></label>
-                    <input type="range" id="tenure" min="5" max="30" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500">
-                </div>
-            </div>
-
-            <div class="p-6 rounded-xl bg-obsidian border border-slate-800 max-w-md mx-auto">
-                <div class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Estimated Monthly Installment (EMI)</div>
-                <div id="emi-result" class="font-serif text-3xl font-bold text-gold-400 mt-1">₹ 1,24,960</div>
-                <div class="text-[10px] text-slate-500 mt-1">Calculated at benchmark 8.5% p.a. bank interest rate.</div>
-            </div>
-        </div>
-    </section>
+    <section id="calculator" class="py-20 px-6 bg-navy-950/90 border-t border-gold-500/10"><div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10"><span class="text-xs font-bold text-gold-400 uppercase tracking-widest">Plan Your Purchase</span><h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Home Loan & Affordability Calculator</h2><p class="text-sm text-slate-400 mt-3">Adjust property value, down payment, interest rate and tenure to estimate your monthly commitment.</p></div>
+      <div class="glass-card p-6 sm:p-9 rounded-2xl border border-gold-500/30 grid grid-cols-1 lg:grid-cols-2 gap-8"><div class="space-y-7 text-sm">
+        <div><div class="flex justify-between mb-2"><label for="prop-val" class="text-slate-300">Property value</label><strong id="prop-val-text" class="text-gold-400">₹1.80 Cr</strong></div><input type="range" id="prop-val" min="5000000" max="100000000" step="500000" value="18000000" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>₹50 Lakh</span><span>₹10 Cr</span></div></div>
+        <div><div class="flex justify-between mb-2"><label for="down-pay" class="text-slate-300">Down payment</label><strong id="down-pay-text" class="text-gold-400">₹36.00 Lakh (20%)</strong></div><input type="range" id="down-pay" min="10" max="80" step="5" value="20" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>10%</span><span>80%</span></div></div>
+        <div><label for="interest-rate" class="block text-slate-300 mb-2">Annual interest rate (editable)</label><div class="flex items-center gap-3"><input type="number" id="interest-rate" min="0" max="25" step="0.1" value="8.5" oninput="calculateEMI()" class="w-32 px-3 py-2 rounded-lg bg-obsidian border border-slate-700 text-white"><span class="text-slate-400">% p.a.</span></div></div>
+        <div><div class="flex justify-between mb-2"><label for="tenure" class="text-slate-300">Loan tenure</label><strong id="tenure-text" class="text-gold-400">20 Years</strong></div><input type="range" id="tenure" min="5" max="30" step="1" value="20" oninput="calculateEMI()" class="w-full accent-gold-500"><div class="flex justify-between text-[10px] text-slate-500"><span>5 years</span><span>30 years</span></div></div>
+        <p class="text-[11px] text-slate-500 leading-relaxed">Estimate only. Actual eligibility, lender rate, processing fees, taxes, stamp duty and registration are separate and may change the final cost.</p></div>
+      <div class="space-y-4"><div class="p-6 rounded-xl bg-obsidian border border-gold-500/30 text-center"><div class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Estimated Monthly EMI</div><div id="emi-result" class="font-serif text-4xl sm:text-5xl font-bold text-gold-400 mt-2">₹1,24,960</div><div class="text-xs text-slate-500 mt-2">Indicative repayment estimate</div></div>
+      <div class="grid grid-cols-2 gap-3 text-xs"><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Loan amount</div><strong id="loan-amount" class="block text-white text-lg mt-1">₹1.44 Cr</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Down payment</div><strong id="down-payment-value" class="block text-white text-lg mt-1">₹36 Lakh</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Total interest</div><strong id="total-interest" class="block text-white text-lg mt-1">—</strong></div><div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="text-slate-400">Total loan repayment</div><strong id="total-payment" class="block text-white text-lg mt-1">—</strong></div></div>
+      <div class="p-4 rounded-xl bg-obsidian border border-slate-800"><div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Principal</span><strong id="principal-share" class="text-white">—</strong></div><div class="h-3 rounded-full bg-slate-700 overflow-hidden flex"><div id="principal-bar" class="h-full bg-gold-500" style="width:50%"></div><div id="interest-bar" class="h-full bg-emerald-500" style="width:50%"></div></div><div class="flex justify-between text-[10px] text-slate-500 mt-2"><span>Principal</span><span id="interest-share">Interest —</span></div></div></div></div></div></section>
 
     <!-- RERA & REGULATORY DISCLOSURES HUB -->
     <section id="compliance" class="py-24 px-6 bg-navy-950/70 border-t border-gold-500/20">
@@ -780,6 +768,8 @@
         </div>
     </section>
 
+    <div id="floorplan-zoom" class="fixed inset-0 z-[70] hidden bg-black/95 p-3 sm:p-6" role="dialog" aria-modal="true" aria-label="Enlarged floor plan"><div class="max-w-7xl mx-auto h-full flex flex-col"><div class="flex items-center justify-between text-white mb-3"><strong id="zoom-plan-title">Floor Plan</strong><button type="button" onclick="closeFloorPlanZoom()" class="px-4 py-2 rounded-lg border border-gold-500/40 text-gold-300">Close ✕</button></div><div class="flex-1 min-h-0 flex items-center justify-center"><img id="zoom-floorplan-image" src="" alt="Enlarged floor plan" class="max-w-full max-h-full object-contain"></div><p class="text-center text-xs text-slate-400 mt-3">Confirm final dimensions and area basis from approved plans.</p></div></div>
+
     <!-- FOOTER -->
     <footer id="contact" class="py-20 px-6 border-t border-gold-500/20 bg-obsidian">
         <div class="max-w-7xl mx-auto">
@@ -797,8 +787,7 @@
                                         <stop offset="100%" stop-color="#8B6508" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M100 15 L125 45 V155 L100 175 L75 155 V45 Z" fill="none" stroke="url(#footerGoldGrad2)" stroke-width="4"/>
-                                <path d="M100 15 V175" stroke="url(#footerGoldGrad2)" stroke-width="3"/>
+                                <path d="M100 15 L125 45 V155 L100 175 L75 155 V45 Z" fill="none" stroke="url(#footerGoldGrad2)" stroke-width="4"/>                                <path d="M100 15 V175" stroke="url(#footerGoldGrad2)" stroke-width="3"/>
                                 <path d="M75 60 L100 75 L125 60" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M75 85 L100 100 L125 85" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M75 110 L100 125 L125 110" stroke="url(#footerGoldGrad2)" stroke-width="2" stroke-linecap="round"/>
@@ -818,10 +807,8 @@
                     </p>
 
                     <div class="text-xs text-slate-300 space-y-1">
-                        <div><strong>Direct Sales Helpline:</strong> 022 20885252</div>
-                        <div><strong>Primary Information Email:</strong> <a href="mailto:info@rabbanitower.com" class="text-gold-400 underline">info@rabbanitower.com</a></div>
-                        <div><strong>Audit & Developer Desk:</strong> <a href="mailto:pbuildersaudit@gmail.com" class="text-gold-400 hover:underline">pbuildersaudit@gmail.com</a></div>
-                        <div><strong>Official Web Portal:</strong> <a href="http://www.rajbuilders.in" target="_blank" class="text-gold-400 hover:underline">www.rajbuilders.in</a></div>
+                        <div><strong>Direct Sales Helpline:</strong> <a href="tel:+918533899999" class="text-gold-400 hover:underline">+91 8533899999</a></div>
+                        <div><strong>Official Email:</strong> <a href="mailto:info@rabbanitower.com" class="text-gold-400 underline">info@rabbanitower.com</a></div>
                     </div>
                 </div>
 
@@ -882,7 +869,7 @@
                     <i data-lucide="file-text" class="w-6 h-6"></i>
                 </div>
                 <h3 class="font-serif text-2xl font-bold text-white">Request Official Catalogue</h3>
-                <p class="text-xs text-slate-400 mt-1">Your email application will open with the enquiry addressed to <strong>info@rabbanitower.com</strong> (CC: innotechat@gmail.com).</p>
+                <p class="text-xs text-slate-400 mt-1">Your email application will open with the enquiry addressed to <strong>info@rabbanitower.com</strong>.</p>
             </div>
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
                 <div>
@@ -900,9 +887,9 @@
                 <div>
                     <label class="block text-slate-300 mb-1 font-medium">Interested Configuration</label>
                     <select id="form-config" class="w-full px-4 py-2.5 rounded-lg bg-obsidian border border-slate-800 text-white focus:border-gold-500 outline-none">
-                        <option value="1BHK">1 BHK (536 / 559 SFT)</option>
-                        <option value="2BHK">2 BHK Executive (746 - 772 SFT)</option>
-                        <option value="Combined">Combined Flat 01 / 02 (1,294 - 1,308 SFT)</option>
+                        <option value="1BHK">1 BHK (510 / 536 / 559 sq. ft.)</option>
+                        <option value="2BHK">2 BHK (720 / 746 / 772 sq. ft.)</option>
+                        <option value="Combined">3 BHK Combined (1,230 / 1,294 / 1,308 sq. ft.)</option>
                         <option value="Commercial">Commercial Shop / Arcade Space</option>
                     </select>
                 </div>
@@ -951,7 +938,7 @@
 
             // Loan Principal Calculation
             const principal = propVal - downPayVal;
-            const annualRate = 8.5; // Standard 8.5% benchmark interest
+            const annualRate = Number(document.getElementById('interest-rate')?.value || 0);
             const monthlyRate = (annualRate / 12) / 100;
             const months = tenureYears * 12;
 
@@ -972,8 +959,9 @@
         const floorPlanData = {
             '1bhk': {
                 tag: 'Compact Luxury',
-                title: '1 BHK Residence (510 / 536 / 559 SFT)',
-                desc: 'Architectually optimized single-bedroom layout with 3\'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.',
+                title: '1 BHK Residence',
+                areas: ['510', '536', '559'],
+                desc: 'Architecturally optimized single-bedroom layout with 3\'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.',
                 img: 'https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg',
                 living: '10\'0" x 19\'10"',
                 bed1: '10\'0" x 12\'2"',
@@ -983,7 +971,8 @@
             },
             '2bhk': {
                 tag: 'Executive Family Space',
-                title: '2 BHK Executive Suite (720 / 746 / 772 SFT)',
+                title: '2 BHK Executive Suite',
+                areas: ['720', '746', '772'],
                 desc: 'Expansive 2 Bedroom suite with dedicated dining alcove, twin balcony decks, master ensuite bath, and smoke/fireman lobby access.',
                 img: 'https://i.postimg.cc/4dcC3nXC/floorplan-2bhk.jpg',
                 living: '11\'0" x 18\'6" / 11\'0" x 19\'9"',
@@ -994,11 +983,11 @@
             },
             'combined': {
                 tag: 'Presidential Penthouse Style',
-                title: '3 BHK / Combined Flat 01 & 02 (1,230 / 1,294 / 1,308 SFT)',
+                title: '3 BHK / Combined Flat 01 & 02',
+                areas: ['1,230', '1,294', '1,308'],
                 desc: 'Ultra-luxurious merged 3 BHK residence featuring dual living zones (21\'6" x 19\'9"), private executive study room, grand dining hall, and multi-bedroom suites.',
                 img: 'https://i.postimg.cc/C18yKdwT/combined2.jpg',
-                living: '21\'6" x 19\'9" (Combined Living/Dining)',
-                bed1: '10\'10" x 12\'4" & 10\'0" x 12\'2"',
+                living: '21\'6" x 19\'9" (Combined Living/Dining)',                bed1: '10\'10" x 12\'4" & 10\'0" x 12\'2"',
                 kitchen: '7\'7" x 10\'7"',
                 deck: '3\'9" Width (Extended Balcony Deck)',
                 bath: '3 Bathrooms + Dedicated Study (8\'10" x 7\'1")'
@@ -1024,11 +1013,15 @@
             const titleEl = document.getElementById('plan-title');
             const descEl = document.getElementById('plan-desc');
             const imgEl = document.getElementById('floorplan-image');
+            const areaEl = document.getElementById('plan-area-variants');
 
             if (tagEl) tagEl.innerText = data.tag;
             if (titleEl) titleEl.innerText = data.title;
             if (descEl) descEl.innerText = data.desc;
             if (imgEl) imgEl.src = data.img;
+            const zoomImg=document.getElementById('zoom-floorplan-image'); if(zoomImg)zoomImg.src=data.img;
+            const zoomTitle=document.getElementById('zoom-plan-title'); if(zoomTitle)zoomTitle.textContent=data.title;
+            if(areaEl)areaEl.textContent=data.areas.join('  /  ');
 
             const dimLiving = document.getElementById('dim-living');
             const dimBed1 = document.getElementById('dim-bed1');
@@ -1043,6 +1036,11 @@
             if (dimBath && data.bath) dimBath.innerText = data.bath;
         }
 
+        function openFloorPlanZoom(){const source=document.getElementById('floorplan-image'),modal=document.getElementById('floorplan-zoom'),target=document.getElementById('zoom-floorplan-image');if(!source||!modal||!target)return;target.src=source.src;document.getElementById('zoom-plan-title').textContent=document.getElementById('plan-title')?.textContent||'Floor Plan';modal.classList.remove('hidden');document.body.style.overflow='hidden';}
+        function closeFloorPlanZoom(){document.getElementById('floorplan-zoom')?.classList.add('hidden');document.body.style.overflow='';}
+        function applyTheme(theme){const light=theme==='light';document.body.dataset.theme=light?'light':'dark';const button=document.getElementById('theme-toggle'),label=document.getElementById('theme-toggle-label');if(button){button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');}if(label)label.textContent=light?'Dark':'Light';}
+        function toggleTheme(){const next=document.body.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('rabbani-theme',next);}catch(e){}applyTheme(next);}
+        function initializeTheme(){let saved=null;try{saved=localStorage.getItem('rabbani-theme');}catch(e){}applyTheme(saved||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));}
         // Brochure Modal Controls
         function openBrochureModal() {
             const modal = document.getElementById('brochure-modal');
@@ -1070,7 +1068,7 @@
             const configuration = document.getElementById('form-config')?.value || 'Not specified';
             const subject = encodeURIComponent('Rabbani Tower Website Enquiry');
             const body = encodeURIComponent('New enquiry from Rabbani Tower website\\n\\nName: ' + name + '\\nPhone: ' + phone + '\\nEmail: ' + email + '\\nInterested configuration: ' + configuration + '\\n');
-            window.location.href = 'mailto:info@rabbanitower.com?cc=innotechat@gmail.com&subject=' + subject + '&body=' + body;
+            window.location.href = 'mailto:info@rabbanitower.com?subject=' + subject + '&body=' + body;
             closeBrochureModal();
         }
 
@@ -1119,10 +1117,29 @@
         window.handleFormSubmit = handleFormSubmit;
         window.viewDoc = viewDoc;
         window.closeDocModal = closeDocModal;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            calculateEMI();
-        });
+        function calculateEMI() {
+            const property = Number(document.getElementById('prop-val')?.value || 0);
+            const downPct = Number(document.getElementById('down-pay')?.value || 0);
+            const years = Number(document.getElementById('tenure')?.value || 0);
+            const annualRate = Number(document.getElementById('interest-rate')?.value || 0);
+            const downPayment = property * downPct / 100;
+            const principal = Math.max(0, property - downPayment);
+            const months = years * 12, rate = annualRate / 1200;
+            const emi = months ? (rate ? principal * rate * Math.pow(1 + rate, months) / (Math.pow(1 + rate, months) - 1) : principal / months) : 0;
+            const total = emi * months, interest = Math.max(0, total - principal);
+            const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+            const compact = n => n >= 1e7 ? '₹' + (n / 1e7).toFixed(2) + ' Cr' : n >= 1e5 ? '₹' + (n / 1e5).toFixed(2) + ' Lakh' : fmt(n);
+            const set = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+            set('prop-val-text',compact(property)); set('down-pay-text',compact(downPayment)+' ('+downPct+'%)'); set('tenure-text',years+' Years');
+            set('emi-result',fmt(emi)); set('loan-amount',compact(principal)); set('down-payment-value',compact(downPayment));
+            set('total-interest',compact(interest)); set('total-payment',compact(total));
+            const p=total?principal/total*100:0, i=total?interest/total*100:0;
+            set('principal-share',p.toFixed(1)+'%'); set('interest-share','Interest '+i.toFixed(1)+'%');
+            const pb=document.getElementById('principal-bar'), ib=document.getElementById('interest-bar');
+            if(pb)pb.style.width=p+'%'; if(ib)ib.style.width=i+'%';
+        }
+        window.openFloorPlanZoom=openFloorPlanZoom; window.closeFloorPlanZoom=closeFloorPlanZoom; window.toggleTheme=toggleTheme;
+        document.addEventListener('DOMContentLoaded',()=>{initializeTheme();calculateEMI();switchFloorPlan('1bhk');});
     </script>
 </body>
 </html>
