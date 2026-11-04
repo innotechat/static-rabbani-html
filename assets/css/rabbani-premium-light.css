@@ -119,3 +119,63 @@ section img:hover { filter: saturate(.94); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Phase 2: stronger brand mark and editorial hero hierarchy */
+nav a[aria-label="Rabbani Tower home"] > div:first-child {
+  width: 146px !important;
+  height: 44px !important;
+  padding: 5px !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  border: 1px solid #ded7c9 !important;
+  box-shadow: 0 3px 12px rgba(23,43,67,.07) !important;
+}
+nav a[aria-label="Rabbani Tower home"] > div:first-child svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+nav a[aria-label="Rabbani Tower home"] > div:last-child > div:first-child {
+  color: var(--rt-navy) !important;
+  letter-spacing: .045em;
+}
+nav a[aria-label="Rabbani Tower home"] > div:last-child > div:last-child {
+  color: #927342 !important;
+}
+#overview > .max-w-7xl > .max-w-4xl {
+  max-width: 780px;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+#overview > .max-w-7xl > .max-w-4xl p { margin-left: 0; }
+#overview > .max-w-7xl > .max-w-4xl h1 { max-width: 760px; }
+#overview .grid.grid-cols-1.lg\\:grid-cols-12 { align-items: stretch; }
+#overview .lg\\:col-span-7 > .glass-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#overview .lg\\:col-span-7 .h-\\[480px\\] {
+  height: clamp(430px, 48vw, 620px);
+  flex: 1;
+}
+#overview .lg\\:col-span-5 > .glass-card { box-shadow: var(--rt-shadow); }
+#overview .lg\\:col-span-5 .space-y-2\\.5 > div {
+  background: #f4f1ea !important;
+  border-color: #e5dfd4 !important;
+}
+#overview .lg\\:col-span-5 .grid > div {
+  background: #eeeae1 !important;
+  border-color: #e1dacd !important;
+}
+@media (min-width: 640px) {
+  nav a[aria-label="Rabbani Tower home"] > div:first-child {
+    width: 176px !important;
+    height: 50px !important;
+  }
+}
+@media (max-width: 767px) {
+  #overview > .max-w-7xl > .max-w-4xl { text-align: left; }
+  #overview .lg\\:col-span-7 .h-\\[480px\\] { height: 390px; }
+}
