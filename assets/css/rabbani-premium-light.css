@@ -828,3 +828,16 @@ body nav details > div a { color: #344454 !important; }
     letter-spacing: .045em !important;
   }
 }
+
+/* Phase 8: subtle, consistent lighting for amenity photography.
+   Hero image retains its approved treatment; floor plans are never colour-adjusted. */
+section:not(#overview):not(#floorplans) img {
+  filter: brightness(1.045) contrast(.965) saturate(.78);
+}
+section:not(#overview):not(#floorplans) img:hover {
+  filter: brightness(1.055) contrast(.975) saturate(.82);
+}
+#floorplans img,
+#zoom-floorplan-image {
+  filter: none !important;
+}
