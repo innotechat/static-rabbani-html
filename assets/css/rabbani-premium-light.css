@@ -862,3 +862,14 @@ section:not(#overview):not(#floorplans) img:hover {
 }
 #floorplans img,
 #zoom-floorplan-image { filter: none !important; }
+
+/* Phase 11: reference-matched muted natural grading */
+section:not(#overview):not(#floorplans) img {
+  filter: sepia(.10) saturate(.48) brightness(.98) contrast(.92) !important;
+}
+section:not(#overview):not(#floorplans) img:hover {
+  filter: sepia(.09) saturate(.51) brightness(.99) contrast(.93) !important;
+}
+#overview img,
+#floorplans img,
+#zoom-floorplan-image { filter: none !important; }
