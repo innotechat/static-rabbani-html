@@ -550,3 +550,190 @@ section:not(#floorplans) img:hover {
     flex-direction: column;
   }
 }
+
+/* Phase 6: comprehensive facilities editorial system */
+#facilities .rt-facilities-heading {
+  max-width: 760px;
+  margin: 0 auto 54px 0;
+  text-align: left;
+}
+#facilities .rt-facilities-heading h2 {
+  margin: 14px 0 15px;
+  color: var(--rt-navy) !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+#facilities .rt-facilities-heading p,
+#facilities .rt-facility-overview-copy p,
+#facilities .rt-facility-tiers > div:first-child p {
+  color: var(--rt-muted) !important;
+  font-size: 14px;
+  line-height: 1.8;
+}
+#facilities .rt-facility-overview {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 35px;
+  align-items: center;
+  padding: 30px 34px;
+  margin-bottom: 52px;
+  background: #eee9df;
+  border: 1px solid #e1d8c8;
+  border-left: 4px solid var(--rt-gold);
+}
+#facilities .rt-facility-overview-copy h3 {
+  margin: 9px 0 7px;
+  color: var(--rt-navy) !important;
+  font: 500 clamp(1.6rem,2.4vw,2.25rem)/1.15 'Playfair Display', Georgia, serif;
+}
+#facilities .rt-home-sizes {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+#facilities .rt-home-sizes > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 7px 20px;
+  border-left: 1px solid #d8cebd;
+}
+#facilities .rt-home-sizes strong {
+  color: var(--rt-navy);
+  font: 500 clamp(1.8rem,3vw,2.8rem)/1 'Playfair Display', Georgia, serif;
+}
+#facilities .rt-home-sizes span {
+  color: #77736b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+#facilities .rt-facility-groups {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 0 52px;
+  border-top: 1px solid var(--rt-line);
+}
+#facilities .rt-facility-group {
+  display: grid;
+  grid-template-columns: 48px minmax(0,1fr);
+  gap: 18px;
+  padding: 31px 0 34px;
+  border-bottom: 1px solid var(--rt-line);
+}
+#facilities .rt-facility-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #eee9df;
+  border: 1px solid #e1d8c8;
+  color: #927342;
+}
+#facilities .rt-facility-icon svg { width: 19px; height: 19px; }
+#facilities .rt-facility-index {
+  color: #987b4c !important;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+#facilities .rt-facility-group h3 {
+  margin: 8px 0 13px;
+  color: var(--rt-navy) !important;
+  font: 500 clamp(1.35rem,2vw,1.75rem)/1.2 'Playfair Display', Georgia, serif;
+}
+#facilities .rt-facility-group ul {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#facilities .rt-facility-group li {
+  position: relative;
+  padding-left: 16px;
+  color: #626b70;
+  font-size: 12px;
+  line-height: 1.65;
+}
+#facilities .rt-facility-group li::before {
+  content: "";
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rt-gold);
+}
+#facilities .rt-facility-note {
+  margin: 15px 0 0;
+  padding: 12px 14px;
+  background: #f0ece4;
+  color: #6e6a61 !important;
+  font-size: 11px;
+  line-height: 1.65;
+}
+#facilities .rt-facility-tiers {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: 40px;
+  margin-top: 58px;
+  padding: 34px;
+  background: var(--rt-navy);
+}
+#facilities .rt-facility-tiers > div:first-child > span {
+  color: #ddc99f;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+#facilities .rt-facility-tiers h3 {
+  margin: 12px 0;
+  color: #fff !important;
+  font: 500 clamp(1.7rem,2.5vw,2.4rem)/1.15 'Playfair Display', Georgia, serif;
+}
+#facilities .rt-facility-tiers > div:first-child p { color: #d0d6dc !important; }
+#facilities .rt-tier-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+#facilities .rt-tier-list article {
+  padding: 17px 15px;
+  border: 1px solid rgba(227,209,170,.35);
+  background: rgba(255,255,255,.045);
+}
+#facilities .rt-tier-list strong {
+  color: #e3d1aa;
+  font: 500 17px 'Playfair Display', Georgia, serif;
+}
+#facilities .rt-tier-list p {
+  margin: 9px 0 0;
+  color: #e0e4e7 !important;
+  font-size: 11px;
+  line-height: 1.7;
+}
+#facilities .rt-facility-disclaimer {
+  max-width: 900px;
+  margin: 20px 0 0;
+  color: #7a7c7a !important;
+  font-size: 10px;
+  line-height: 1.7;
+}
+@media(max-width: 900px) {
+  #facilities .rt-facility-overview,
+  #facilities .rt-facility-tiers { grid-template-columns: 1fr; }
+  #facilities .rt-facility-groups { gap: 0 28px; }
+}
+@media(max-width: 640px) {
+  #facilities { padding: 68px 20px !important; }
+  #facilities .rt-facilities-heading { margin-bottom: 34px; }
+  #facilities .rt-facility-overview { padding: 23px 20px; gap: 22px; margin-bottom: 34px; }
+  #facilities .rt-home-sizes > div { padding: 5px 10px; }
+  #facilities .rt-home-sizes strong { font-size: 1.65rem; }
+  #facilities .rt-home-sizes span { font-size: 8px; letter-spacing: .05em; }
+  #facilities .rt-facility-groups { grid-template-columns: 1fr; }
+  #facilities .rt-facility-group { padding: 25px 0; grid-template-columns: 40px minmax(0,1fr); gap: 13px; }
+  #facilities .rt-facility-icon { width: 36px; height: 36px; }
+  #facilities .rt-facility-tiers { padding: 25px 20px; margin-top: 38px; gap: 24px; }
+  #facilities .rt-tier-list { grid-template-columns: 1fr; }
+}
