@@ -1038,9 +1038,9 @@
 
         function openFloorPlanZoom(){const source=document.getElementById('floorplan-image'),modal=document.getElementById('floorplan-zoom'),target=document.getElementById('zoom-floorplan-image');if(!source||!modal||!target)return;target.src=source.src;document.getElementById('zoom-plan-title').textContent=document.getElementById('plan-title')?.textContent||'Floor Plan';modal.classList.remove('hidden');document.body.style.overflow='hidden';}
         function closeFloorPlanZoom(){document.getElementById('floorplan-zoom')?.classList.add('hidden');document.body.style.overflow='';}
-        function applyTheme(theme){const light=theme==='light';document.body.dataset.theme=light?'light':'dark';const button=document.getElementById('theme-toggle'),label=document.getElementById('theme-toggle-label');if(button){button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');}if(label)label.textContent=light?'Dark':'Light';}
-        function toggleTheme(){const next=document.body.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('rabbani-theme',next);}catch(e){}applyTheme(next);}
-        function initializeTheme(){let saved=null;try{saved=localStorage.getItem('rabbani-theme');}catch(e){}applyTheme(saved||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));}
+        function applyTheme(){document.body.dataset.theme='dark';const button=document.getElementById('theme-toggle'),label=document.getElementById('theme-toggle-label');if(button){button.setAttribute('aria-pressed','false');button.setAttribute('aria-label','Light mode coming soon');button.setAttribute('title','Light mode is being redesigned');button.setAttribute('aria-disabled','true');button.classList.add('opacity-70','cursor-not-allowed');}if(label)label.textContent='Light soon';}
+        function toggleTheme(){applyTheme();}
+        function initializeTheme(){try{localStorage.removeItem('rabbani-theme');}catch(e){}applyTheme();}
         // Brochure Modal Controls
         function openBrochureModal() {
             const modal = document.getElementById('brochure-modal');
