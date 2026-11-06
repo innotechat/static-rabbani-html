@@ -930,3 +930,11 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
 #floorplan-zoom .rt-zoom-close{color:#172b43!important}
 #residence-enquiry input::placeholder{color:#7b8794}
 #residence-enquiry button{cursor:pointer}
+
+
+/* Explicit button and navigation text contrast — overrides global light-theme text rules */
+.rt-nav-contact,.rt-nav-contact:visited,.rt-nav-contact:hover,.rt-nav-contact:focus{color:#172b43!important;background:#d8bd8a!important;text-decoration:none!important;opacity:1!important;visibility:visible!important}
+.rt-nav-contact-mobile{display:flex;width:100%;justify-content:flex-start;padding:.85rem 1rem;border-radius:.65rem;margin-top:.25rem;font-size:.875rem}
+.rt-form-submit,.rt-form-submit:visited,.rt-form-submit:hover,.rt-form-submit:focus{color:#fff!important;background:#172b43!important;border:1px solid #344a65!important;opacity:1!important;visibility:visible!important;text-shadow:none!important}
+#residence-enquiry .rt-form-submit{color:#fff!important;background:#172b43!important}
+#contact .rt-form-submit{color:#fff!important;background:#172b43!important}
