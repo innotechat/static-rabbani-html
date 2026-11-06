@@ -938,3 +938,19 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
 .rt-form-submit,.rt-form-submit:visited,.rt-form-submit:hover,.rt-form-submit:focus{color:#fff!important;background:#172b43!important;border:1px solid #344a65!important;opacity:1!important;visibility:visible!important;text-shadow:none!important}
 #residence-enquiry .rt-form-submit{color:#fff!important;background:#172b43!important}
 #contact .rt-form-submit{color:#fff!important;background:#172b43!important}
+
+/* Approved hero slider and optical logo alignment */
+#overview .rt-hero-visual{position:relative}
+#overview .rt-hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s ease}
+#overview .rt-hero-slide.is-active{position:relative;opacity:1;visibility:visible}
+#overview .rt-hero-slide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(.68) contrast(1.02) brightness(.88)!important}
+#overview .rt-hero-slide:not(:first-child){min-height:clamp(560px,66vw,790px);background:#26384a}
+#overview .rt-hero-slide:not(:first-child)>img{filter:none!important}
+#overview .rt-hero-controls{position:absolute;z-index:5;right:max(32px,calc((100% - 1180px)/2));bottom:24px;display:flex;align-items:center;gap:12px}
+#overview .rt-hero-arrow{width:34px;height:34px;border:1px solid rgba(255,255,255,.65);border-radius:50%;color:#fff;background:rgba(13,28,44,.35);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+#overview .rt-hero-dots{display:flex;align-items:center;gap:8px}
+#overview .rt-hero-dot{width:8px;height:8px;padding:0;border:1px solid #fff;border-radius:50%;background:transparent;cursor:pointer}
+#overview .rt-hero-dot.is-active{width:22px;border-radius:10px;background:#e3d1aa;border-color:#e3d1aa}
+@media(max-width:640px){#overview .rt-hero-controls{right:20px;bottom:18px}#overview .rt-hero-arrow{width:32px;height:32px}}
+@media(prefers-reduced-motion:reduce){#overview .rt-hero-slide{transition:none}}
+body nav a[aria-label="Rabbani Tower home"]>div:first-child svg{position:relative;left:3px}
