@@ -697,7 +697,8 @@
             </div>
 
             <div class="lg:col-span-7">
-                <div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-obsidian p-2">
+                <div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-obsidian p-2 relative">
+                    <div class="absolute z-10 top-5 left-5 rounded-lg bg-[#fffdf8] border border-[#d8c7a7] shadow-lg px-3 py-2 flex items-center gap-2 text-[#172b43] text-xs font-bold"><span class="text-[#a14a3b] text-base">●</span> Rabbani Tower · Venus Grandeur</div>
                     <iframe title="Rabbani Tower location on Google Maps" src="https://www.google.com/maps?q=Rabbani+Tower,+Venus+Grandeur,+Plot+No.+67%2F15,+CTS+No.+1926,+Ramchandra+Bhatt+Marg,+Jail+Road+North,+Byculla+East,+Mumbai+400009&output=embed" class="w-full h-[360px] sm:h-[460px] rounded-xl border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                     <a href="https://www.google.com/maps/search/?api=1&query=Rabbani+Tower%2C+Venus+Grandeur%2C+Plot+No.+67%2F15%2C+CTS+No.+1926%2C+Ramchandra+Bhatt+Marg%2C+Jail+Road+North%2C+Byculla+East%2C+Mumbai+400009" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-gold-400 hover:underline"><i data-lucide="map-pin" class="w-4 h-4"></i> Open Directions in Google Maps</a>
                 </div>
@@ -849,6 +850,20 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="mb-12 rounded-2xl border border-[#d8c7a7] bg-[#fffdf8] p-6 sm:p-8 text-[#172b43]">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                <div><span class="text-[10px] uppercase tracking-[.18em] font-bold text-[#9a7944]">GET IN TOUCH</span><h3 class="font-serif text-2xl mt-2">Connect with our team.</h3><p class="text-xs leading-6 text-slate-600 mt-2">Leave your details and enquiry. Your email app will prepare a message to our website enquiry desk.</p></div>
+                <form onsubmit="submitGeneralEnquiry(event)" class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                  <input id="contact-name" required maxlength="100" autocomplete="name" placeholder="Full name" class="rounded-lg border border-[#ddd3c2] bg-white px-4 py-3 text-[#172b43]">
+                  <input id="contact-phone" required type="tel" maxlength="20" autocomplete="tel" placeholder="Phone number" class="rounded-lg border border-[#ddd3c2] bg-white px-4 py-3 text-[#172b43]">
+                  <input id="contact-email" required type="email" maxlength="150" autocomplete="email" placeholder="Email address" class="rounded-lg border border-[#ddd3c2] bg-white px-4 py-3 text-[#172b43] sm:col-span-2">
+                  <textarea id="contact-message" required maxlength="1500" rows="3" placeholder="How can we help?" class="rounded-lg border border-[#ddd3c2] bg-white px-4 py-3 text-[#172b43] sm:col-span-2"></textarea>
+                  <button type="submit" class="sm:col-span-2 justify-self-start rounded-lg bg-[#172b43] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white">Send Enquiry</button>
+                  <p class="sm:col-span-2 text-[11px] leading-5 text-slate-500">Your email application will open addressed to itginnotech@gmail.com. Press Send in your email app to submit.</p>
+                </form>
+              </div>
             </div>
 
             <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
@@ -1093,6 +1108,15 @@
             closeBrochureModal();
         }
 
+        function submitGeneralEnquiry(event) {
+            event.preventDefault();
+            const get = id => document.getElementById(id)?.value?.trim() || '';
+            const name=get('contact-name'), phone=get('contact-phone'), email=get('contact-email'), message=get('contact-message');
+            const subject=encodeURIComponent('Rabbani Tower — Website Contact Enquiry');
+            const body=encodeURIComponent('New contact enquiry from rabbanitower.com\\n\\nName: '+name+'\\nPhone: '+phone+'\\nEmail: '+email+'\\nMessage: '+message+'\\n');
+            window.location.href='mailto:itginnotech@gmail.com?subject='+subject+'&body='+body;
+        }
+
         function openResidenceEnquiry() {
             const modal = document.getElementById('residence-enquiry');
             const title = document.getElementById('plan-title');
@@ -1153,6 +1177,7 @@
 
         // Expose functions globally to ensure inline onclick listeners work cleanly
 
+        window.submitGeneralEnquiry = submitGeneralEnquiry;
         window.openResidenceEnquiry = openResidenceEnquiry;
         window.closeResidenceEnquiry = closeResidenceEnquiry;
         window.submitResidenceEnquiry = submitResidenceEnquiry;
