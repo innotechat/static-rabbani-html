@@ -414,7 +414,7 @@
                 
                 <!-- Floor Plan 3D Render Display -->
                 <div class="lg:col-span-7 relative group">
-                    <button type="button" onclick="openFloorPlanZoom()" aria-label="Zoom floor plan" class="relative w-full min-h-[420px] lg:min-h-[650px] bg-obsidian/90 rounded-xl p-3 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden cursor-zoom-in group"><img id="floorplan-image" src="https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg" alt="Active Floor Plan View" class="max-h-[650px] w-full object-contain rounded transition-transform duration-300 group-hover:scale-[1.02]"><span class="absolute bottom-5 right-5 px-3 py-2 rounded-lg bg-black/80 text-white text-xs border border-gold-500/40">Tap to enlarge</span></button>
+                    <button type="button" onclick="openFloorPlanZoom()" aria-label="Zoom floor plan" class="relative w-full min-h-[420px] lg:min-h-[650px] bg-obsidian/90 rounded-xl p-3 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden cursor-zoom-in group"><img id="floorplan-image" src="https://i.postimg.cc/4dcC3nXC/floorplan-2bhk.jpg" alt="Active Floor Plan View" class="max-h-[650px] w-full object-contain rounded transition-transform duration-300 group-hover:scale-[1.02]"><span class="absolute bottom-5 right-5 px-3 py-2 rounded-lg bg-black/80 text-white text-xs border border-gold-500/40">Tap to enlarge</span></button>
                     <div class="absolute top-6 left-6 px-3 py-1 bg-black/80 backdrop-blur-md rounded border border-gold-500/40 text-[11px] text-gold-400 font-bold uppercase tracking-wider" id="plan-tag">
                         Compact Luxury
                     </div>
@@ -985,7 +985,7 @@
                 title: '1 BHK Residence',
                 areas: ['510', '536', '559'],
                 desc: 'Architecturally optimized single-bedroom layout with 3\'9" private balcony deck, dual full bathrooms, open kitchen, and dedicated utility ducting space.',
-                img: 'https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg',
+                img: 'https://i.postimg.cc/4dcC3nXC/floorplan-2bhk.jpg',
                 living: '10\'0" x 19\'10"',
                 bed1: '10\'0" x 12\'2"',
                 kitchen: '7\'7" x 8\'10"',
@@ -997,7 +997,7 @@
                 title: '2 BHK Executive Suite',
                 areas: ['720', '746', '772'],
                 desc: 'Expansive 2 Bedroom suite with dedicated dining alcove, twin balcony decks, master ensuite bath, and smoke/fireman lobby access.',
-                img: 'https://i.postimg.cc/4dcC3nXC/floorplan-2bhk.jpg',
+                img: 'https://i.postimg.cc/4dcC3nsr/floorplan-1bhk.jpg',
                 living: '11\'0" x 18\'6" / 11\'0" x 19\'9"',
                 bed1: '10\'10" x 12\'4" (Master) & 10\'1" x 10\'10"',
                 kitchen: '7\'7" x 9\'4" / 9\'4" x 7\'7"',
@@ -1091,7 +1091,7 @@
             const configuration = document.getElementById('form-config')?.value || 'Not specified';
             const subject = encodeURIComponent('Rabbani Tower Website Enquiry');
             const body = encodeURIComponent('New enquiry from Rabbani Tower website\\n\\nName: ' + name + '\\nPhone: ' + phone + '\\nEmail: ' + email + '\\nInterested configuration: ' + configuration + '\\n');
-            window.location.href = 'mailto:info@rabbanitower.com?subject=' + subject + '&body=' + body;
+            window.location.href = 'mailto:itginnotech@gmail.com?subject=' + subject + '&body=' + body;
             closeBrochureModal();
         }
 
