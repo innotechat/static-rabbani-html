@@ -756,7 +756,7 @@ body nav a[aria-label="Rabbani Tower home"] {
 }
 body nav a[aria-label="Rabbani Tower home"] > div:first-child {
   flex: 0 0 auto;
-  width: clamp(112px, 11vw, 158px) !important;
+  width: clamp(148px, 15vw, 190px) !important;
   height: 44px !important;
   padding: 4px !important;
 }
@@ -810,14 +810,14 @@ body nav details > div a { color: #344454 !important; }
 @media (min-width: 768px) and (max-width: 1279px) {
   body nav { min-height: 82px; }
   body nav a[aria-label="Rabbani Tower home"] > div:first-child {
-    width: 136px !important;
+    width: 160px !important;
   }
 }
 @media (max-width: 767px) {
   body nav { min-height: 68px; }
   body nav a[aria-label="Rabbani Tower home"] { gap: 8px !important; }
   body nav a[aria-label="Rabbani Tower home"] > div:first-child {
-    width: 106px !important;
+    width: 142px !important;
     height: 38px !important;
   }
   body nav a[aria-label="Rabbani Tower home"] > div:last-child > div:first-child {
@@ -883,7 +883,7 @@ section img[src*="finnish-sauna.webp"] { filter: saturate(.62) brightness(.98) c
 section img[src*="steam-room.webp"] { filter: saturate(.42) brightness(1) contrast(.92) sepia(.035) !important; }
 section img[src*="reception.webp"] { filter: saturate(.49) brightness(.98) contrast(.94) sepia(.065) !important; }
 section img[src*="rooftop.webp"] { filter: saturate(.52) brightness(.98) contrast(.94) sepia(.04) !important; }
-section img[src*="golf-club.webp"] { filter: saturate(.50) brightness(.98) contrast(.93) sepia(.025) !important; }
+section img[src*="virtual-golf-club.webp"] { filter: saturate(.50) brightness(.98) contrast(.93) sepia(.025) !important; }
 section img[src*="billiards.webp"] { filter: saturate(.48) brightness(.97) contrast(.94) sepia(.045) !important; }
 section img[src*="home-theatre.webp"] { filter: saturate(.42) brightness(.97) contrast(.95) sepia(.04) !important; }
 section img[src*="conference-room.webp"] { filter: saturate(.47) brightness(.99) contrast(.94) sepia(.045) !important; }
@@ -900,7 +900,7 @@ section img[src*="finnish-sauna.webp"]:hover { filter: saturate(.65) brightness(
 section img[src*="steam-room.webp"]:hover { filter: saturate(.45) brightness(1.01) contrast(.93) sepia(.035) !important; }
 section img[src*="reception.webp"]:hover { filter: saturate(.52) brightness(.99) contrast(.95) sepia(.065) !important; }
 section img[src*="rooftop.webp"]:hover { filter: saturate(.55) brightness(.99) contrast(.95) sepia(.04) !important; }
-section img[src*="golf-club.webp"]:hover { filter: saturate(.53) brightness(.99) contrast(.94) sepia(.025) !important; }
+section img[src*="virtual-golf-club.webp"]:hover { filter: saturate(.53) brightness(.99) contrast(.94) sepia(.025) !important; }
 section img[src*="billiards.webp"]:hover { filter: saturate(.51) brightness(.98) contrast(.95) sepia(.045) !important; }
 section img[src*="home-theatre.webp"]:hover { filter: saturate(.45) brightness(.98) contrast(.96) sepia(.04) !important; }
 section img[src*="conference-room.webp"]:hover { filter: saturate(.50) brightness(1) contrast(.95) sepia(.045) !important; }
