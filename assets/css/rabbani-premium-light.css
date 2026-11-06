@@ -953,4 +953,4 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
 #overview .rt-hero-dot.is-active{width:22px;border-radius:10px;background:#e3d1aa;border-color:#e3d1aa}
 @media(max-width:640px){#overview .rt-hero-controls{right:20px;bottom:18px}#overview .rt-hero-arrow{width:32px;height:32px}}
 @media(prefers-reduced-motion:reduce){#overview .rt-hero-slide{transition:none}}
-body nav a[aria-label="Rabbani Tower home"]>div:first-child svg{position:relative;left:3px}
+/* Logo artwork is centred by its SVG viewBox; no positional offset required. */
