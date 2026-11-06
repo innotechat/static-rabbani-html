@@ -954,3 +954,74 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
 @media(max-width:640px){#overview .rt-hero-controls{right:20px;bottom:18px}#overview .rt-hero-arrow{width:32px;height:32px}}
 @media(prefers-reduced-motion:reduce){#overview .rt-hero-slide{transition:none}}
 /* Logo artwork is centred by its SVG viewBox; no positional offset required. */
+
+
+/* Rabbani Tower: isolated MahaRERA disclosure styles.
+   All selectors are scoped to #compliance to avoid affecting other sections. */
+#compliance.rt-rera-section {
+  padding: 76px 24px;
+  background: #101a29;
+  border-top: 1px solid rgba(212,175,55,.22);
+  color: #e8edf2;
+}
+#compliance .rt-rera-wrap { width: min(1180px,100%); margin: 0 auto; }
+#compliance .rt-rera-heading { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+#compliance .rt-rera-eyebrow { display:block; color:#c7ad7e; font-size:9px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+#compliance .rt-rera-heading h2 { margin:9px 0 8px; color:#fff; font:500 clamp(1.8rem,3.2vw,2.65rem)/1.15 'Playfair Display',Georgia,serif; }
+#compliance .rt-rera-heading p,#compliance .rt-rera-qr-card p,#compliance .rt-rera-documents-heading p { margin:0; color:#aeb9c5; font-size:11px; line-height:1.65; }
+#compliance .rt-rera-overview { display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:20px; align-items:stretch; }
+#compliance .rt-rera-registration,#compliance .rt-rera-disclosures,#compliance .rt-rera-qr-card { border:1px solid rgba(212,175,55,.22); background:rgba(8,13,26,.72); border-radius:15px; }
+#compliance .rt-rera-registration { padding:25px; }
+#compliance .rt-rera-brand { display:flex; align-items:center; gap:13px; margin-bottom:20px; }
+#compliance .rt-rera-shield { width:48px; height:48px; flex:0 0 48px; display:grid; place-items:center; border:1px solid rgba(212,175,55,.45); border-radius:50%; color:#d4af37; background:rgba(212,175,55,.09); }
+#compliance .rt-rera-shield svg { width:25px; height:25px; }
+#compliance .rt-rera-brand h3 { margin:4px 0 2px; color:#fff; font:700 19px/1.2 'Plus Jakarta Sans',sans-serif; letter-spacing:.025em; }
+#compliance .rt-rera-brand p { margin:0; color:#aeb9c5; font-size:10px; }
+#compliance .rt-rera-number-label { color:#aeb9c5; font-size:10px; letter-spacing:.04em; }
+#compliance .rt-rera-number { margin:4px 0 17px; color:#f0d99f; font:600 16px/1.35 'Plus Jakarta Sans',sans-serif; letter-spacing:.025em; overflow-wrap:anywhere; }
+#compliance .rt-rera-facts { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; margin:0; }
+#compliance .rt-rera-facts div { padding:9px 0; border-top:1px solid rgba(148,163,184,.16); }
+#compliance .rt-rera-facts dt { color:#8f9eae; font-size:9px; line-height:1.4; }
+#compliance .rt-rera-facts dd { margin:3px 0 0; color:#e5eaf0; font-size:10px; line-height:1.45; font-weight:600; }
+#compliance .rt-rera-official-link { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:17px; padding:11px 14px; border:1px solid rgba(212,175,55,.42); border-radius:8px; color:#e7ca8c; background:rgba(212,175,55,.09); font-size:10px; font-weight:700; text-decoration:none; }
+#compliance .rt-rera-official-link:hover { background:rgba(212,175,55,.16); }
+#compliance .rt-rera-official-link svg { width:14px; height:14px; }
+#compliance .rt-rera-side { display:flex; flex-direction:column; gap:15px; min-width:0; }
+#compliance .rt-rera-disclosures { padding:22px; }
+#compliance .rt-rera-disclosures h3,#compliance .rt-rera-documents-heading h3 { margin:0 0 13px; color:#fff; font:500 20px/1.25 'Playfair Display',Georgia,serif; }
+#compliance .rt-rera-disclosure-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+#compliance .rt-rera-disclosure-grid div { min-width:0; padding:11px 12px; border:1px solid rgba(148,163,184,.13); border-radius:8px; background:rgba(255,255,255,.025); }
+#compliance .rt-rera-disclosure-grid span { display:block; margin-bottom:4px; color:#8f9eae; font-size:9px; }
+#compliance .rt-rera-disclosure-grid strong { display:block; color:#e4e9ef; font-size:10px; line-height:1.45; font-weight:600; }
+#compliance .rt-rera-note { margin:12px 0 0; color:#8291a1; font-size:9px; line-height:1.6; }
+#compliance .rt-rera-qr-card { display:flex; align-items:center; gap:17px; padding:14px 17px; }
+#compliance .rt-rera-qr { display:grid; place-items:center; flex:0 0 112px; width:112px; height:112px; padding:6px; border-radius:8px; background:#fff; }
+#compliance .rt-rera-qr img { display:block; width:100px; height:100px; object-fit:contain; filter:none !important; }
+#compliance .rt-rera-qr-card strong { display:block; margin-bottom:5px; color:#f3e5c7; font-size:11px; }
+#compliance .rt-rera-qr-card a:not(.rt-rera-qr) { display:inline-block; margin-top:7px; color:#d8bd8a; font-size:10px; font-weight:700; text-decoration:none; }
+#compliance .rt-rera-documents { margin-top:27px; padding-top:23px; border-top:1px solid rgba(212,175,55,.2); }
+#compliance .rt-rera-documents-heading { margin-bottom:14px; }
+#compliance .rt-rera-documents-heading h3 { margin:5px 0 4px; }
+#compliance .rt-rera-document-grid { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+#compliance .rt-rera-document { display:grid; grid-template-columns:34px minmax(0,1fr) auto; align-items:center; gap:11px; min-width:0; padding:15px; border:1px solid rgba(148,163,184,.17); border-radius:10px; background:rgba(8,13,26,.56); }
+#compliance .rt-rera-file-icon { display:grid; place-items:center; width:34px; height:34px; border:1px solid rgba(212,175,55,.28); border-radius:8px; color:#d8bd8a; background:rgba(212,175,55,.08); }
+#compliance .rt-rera-file-icon svg { width:17px; height:17px; }
+#compliance .rt-rera-document h4 { margin:0 0 4px; color:#edf1f5; font-size:10px; line-height:1.4; font-weight:700; }
+#compliance .rt-rera-document p { margin:0; color:#8795a4; font-size:9px; line-height:1.45; overflow-wrap:anywhere; }
+#compliance .rt-rera-document > a { display:inline-flex; align-items:center; gap:4px; white-space:nowrap; color:#e2c27f; font-size:10px; font-weight:700; text-decoration:none; }
+#compliance .rt-rera-document > a:hover { text-decoration:underline; }
+#compliance .rt-rera-document > a svg { width:12px; height:12px; }
+@media(max-width:850px) {
+  #compliance .rt-rera-overview { grid-template-columns:1fr; }
+  #compliance .rt-rera-side { display:grid; grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  #compliance.rt-rera-section { padding:58px 18px; }
+  #compliance .rt-rera-registration,#compliance .rt-rera-disclosures { padding:18px; }
+  #compliance .rt-rera-facts { gap:0 12px; }
+  #compliance .rt-rera-disclosure-grid,#compliance .rt-rera-document-grid { grid-template-columns:1fr; }
+  #compliance .rt-rera-qr-card { align-items:flex-start; gap:12px; padding:12px; }
+  #compliance .rt-rera-qr { flex-basis:88px; width:88px; height:88px; }
+  #compliance .rt-rera-qr img { width:78px; height:78px; }
+  #compliance .rt-rera-document { grid-template-columns:32px minmax(0,1fr) auto; gap:9px; padding:12px 10px; }
+}
