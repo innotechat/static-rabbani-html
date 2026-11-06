@@ -573,8 +573,139 @@
             lucide.createIcons();
         }
 
-        // Financial Estimator / EMI Calculation Logic
-        window.openFloorPlanZoom=openFloorPlanZoom; window.closeFloorPlanZoom=closeFloorPlanZoom; window.toggleTheme=toggleTheme;
+        // Residence plan catalogue — dimensions transcribed from the supplied floor-plans.pdf
+        const floorPlanData = {
+          '1bhk': {
+            title: '1 Bedroom Compact Residence',
+            tag: 'Plan 5 · Left Deck & Vertical Duct',
+            desc: 'A compact one-bedroom arrangement with separate living / dining, a private bedroom, kitchen and deck.',
+            image: 'https://assets.rabbanitower.com/floorplans/1bhk-layout.webp',
+            dimensions: [
+              ['Living / Dining', "10′ × 19′10″"],
+              ['Bedroom', "10′ × 12′2″"],
+              ['Kitchen', "7′7″ × 8′10″"],
+              ['Toilets', "Two toilets · 7′3″ × 4′3″ each"],
+              ['Duct', "8′4″ × 7′3″"],
+              ['Deck', "3′9″ wide"]
+            ]
+          },
+          '2bhk-a': {
+            title: '2 Bedroom Residence',
+            tag: 'Plan 1 · Right Deck & Top Bathroom Layout',
+            desc: 'Two-bedroom layout with a right-side deck, defined dining zone and two bathrooms.',
+            image: 'https://assets.rabbanitower.com/floorplans/2bhk-layout-a.webp',
+            dimensions: [
+              ['Living', "18′6″ × 11′"],
+              ['Dining', "8′10″ × 8′"],
+              ['Kitchen', "9′4″ × 7′7″"],
+              ['Bedrooms', "10′1″ × 10′10″ · 12′4″ × 10′10″"],
+              ['Toilets', "7′3″ × 4′5″ · 7′10″ × 4′3″"],
+              ['Duct', "8′10″ × 4′3″"],
+              ['Deck', "3′9″ wide"]
+            ]
+          },
+          '2bhk-b': {
+            title: '2 Bedroom Residence',
+            tag: 'Plan 2 · Left Living & Bottom Deck Layout',
+            desc: 'An alternate two-bedroom arrangement with the living zone to the left and deck along the lower edge.',
+            image: 'https://assets.rabbanitower.com/floorplans/2bhk-layout-b.webp',
+            dimensions: [
+              ['Living', "11′ × 18′6″"],
+              ['Dining', "8′ × 8′10″"],
+              ['Kitchen', "7′7″ × 9′4″"],
+              ['Bedrooms', "10′10″ × 10′ · 10′10″ × 12′4″"],
+              ['Toilets', "7′3″ × 4′5″ · 7′10″ × 4′3″"],
+              ['Duct', "8′10″ × 4′3″"],
+              ['Deck', "3′9″ wide"]
+            ]
+          },
+          '2bhk-c': {
+            title: '2 Bedroom Residence',
+            tag: 'Plan 4 · Right Living & Left Bedrooms',
+            desc: 'A further two-bedroom alternate layout with living space to the right and bedrooms arranged on the left.',
+            image: 'https://assets.rabbanitower.com/floorplans/2bhk-layout-c.webp',
+            dimensions: [
+              ['Living', "11′ × 18′6″"],
+              ['Dining', "8′ × 8′10″"],
+              ['Kitchen', "7′7″ × 9′4″"],
+              ['Bedrooms', "10′10″ × 10′ · 10′10″ × 12′4″"],
+              ['Toilets', "7′3″ × 4′5″ · 7′10″ × 4′3″"],
+              ['Duct', "8′10″ × 4′3″"],
+              ['Deck', "3′9″ wide"]
+            ]
+          },
+          '4bhk': {
+            title: '4 Bedroom Grand Residence',
+            tag: 'Plan 3 · Study & Lift Core',
+            desc: 'A larger four-bedroom arrangement with a dedicated study, walk-in wardrobe, servant toilet and lift-core access.',
+            image: 'https://assets.rabbanitower.com/floorplans/4bhk-grand-layout.webp',
+            dimensions: [
+              ['Living', "20′8″ × 18′6″"],
+              ['Dining', "9′10″ × 8′10″"],
+              ['Kitchen', "9′4″ × 9′4″"],
+              ['Study', "7′7″ × 9′4″"],
+              ['Walk-in Wardrobe', "7′7″ × 5′1″"],
+              ['Servant Toilet', "5′7″ × 3′11″"],
+              ['Bedrooms', "Four rooms · 10′10″ × 10′ and 10′10″ × 12′4″ layouts"],
+              ['Lift Core', "11′5″ × 7′10″ · 1.70 m wide lobby"]
+            ]
+          },
+          'combined': {
+            title: 'Combined Flat – 02',
+            tag: 'Plan 6 · Duplex / Multi-Suite Unit',
+            desc: 'A combined multi-suite layout with generous living, study space, three bedrooms and a dedicated lobby / lift core.',
+            image: 'https://assets.rabbanitower.com/floorplans/combined-flat-02.webp',
+            dimensions: [
+              ['Living', "21′6″ × 19′9″"],
+              ['Dining', "8′ × 8′10″"],
+              ['Kitchen', "7′7″ × 10′7″"],
+              ['Study', "8′10″ × 7′1″"],
+              ['Bedrooms', "10′ × 12′2″ · 10′10″ × 12′4″ · 10′10″ × 10′"],
+              ['Lobby & Core', "2.70 m and 1.80 m wide lobby"],
+              ['Lift', "7′10″ × 7′10″"]
+            ]
+          }
+        };
+
+        function switchFloorPlan(type) {
+          const data = floorPlanData[type];
+          if (!data) return;
+          document.querySelectorAll('.rt-plan-tab').forEach(btn => btn.classList.remove('is-active'));
+          const buttonIds = {
+            '1bhk':'btn-1bhk','2bhk-a':'btn-2bhk','2bhk-b':'btn-2bhk-b',
+            '2bhk-c':'btn-2bhk-c','4bhk':'btn-4bhk','combined':'btn-combined'
+          };
+          document.getElementById(buttonIds[type])?.classList.add('is-active');
+          const image = document.getElementById('floorplan-image');
+          if (image) { image.src = data.image; image.alt = 'Rabbani Tower ' + data.title + ' — ' + data.tag; }
+          const tag = document.getElementById('plan-tag');
+          const title = document.getElementById('plan-title');
+          const desc = document.getElementById('plan-desc');
+          if (tag) tag.textContent = data.tag;
+          if (title) title.textContent = data.title;
+          if (desc) desc.textContent = data.desc;
+          const list = document.getElementById('plan-dimensions');
+          if (list) list.innerHTML = data.dimensions.map(([label,value]) =>
+            '<div class="flex items-start justify-between gap-4 border-b border-[#eee8de] pb-2"><dt class="text-slate-500">' + label + '</dt><dd class="text-right font-semibold text-[#24364b]">' + value + '</dd></div>'
+          ).join('');
+          const zoomImage = document.getElementById('zoom-floorplan-image');
+          const zoomTitle = document.getElementById('zoom-plan-title');
+          if (zoomImage) { zoomImage.src = data.image; zoomImage.alt = data.title + ' enlarged floor plan'; }
+          if (zoomTitle) zoomTitle.textContent = data.title + ' · ' + data.tag;
+        }
+
+        function openFloorPlanZoom() {
+          const modal = document.getElementById('floorplan-zoom');
+          if (!modal) return;
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeFloorPlanZoom() {
+          document.getElementById('floorplan-zoom')?.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+\n        // Financial Estimator / EMI Calculation Logic
+        window.switchFloorPlan=switchFloorPlan; window.openFloorPlanZoom=openFloorPlanZoom; window.closeFloorPlanZoom=closeFloorPlanZoom; window.toggleTheme=toggleTheme;
         document.addEventListener('DOMContentLoaded',()=>{
             initializeTheme();
             switchFloorPlan('1bhk');
