@@ -919,3 +919,14 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
 .rt-plan-mobile-select span{display:block;margin:0 0 .45rem .15rem;color:#8a6b3d;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
 .rt-plan-mobile-select select{width:100%;min-height:48px;padding:.75rem 2.5rem .75rem 1rem;border:1px solid #d9cfbe;border-radius:12px;background:#fff;color:#172b43;font:600 13px 'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 14px rgba(30,41,59,.05)}
 @media(max-width:639px){.rt-plan-tabs-desktop{display:none}.rt-plan-mobile-select{display:block}}
+
+
+/* Final contrast and visibility pass for interactive controls */
+.rt-enlarge-label{background:#172b43!important;color:#fff!important;border:1px solid #d8bd8a;box-shadow:0 4px 14px rgba(15,23,42,.24);font-weight:700;z-index:3}
+.rt-zoom-close{background:#d8bd8a!important;color:#172b43!important;border:1px solid #f3dfb7!important;font-weight:800!important;min-width:84px;text-align:center;opacity:1!important;visibility:visible!important}
+.rt-nav-contact{display:inline-flex;align-items:center;justify-content:center;padding:.58rem 1rem;border-radius:999px;background:#d8bd8a;color:#172b43!important;font-weight:800;border:1px solid #b99a63}
+.rt-nav-contact:hover{background:#c7a66a}
+#floorplan-zoom #zoom-plan-title{color:#fff!important}
+#floorplan-zoom .rt-zoom-close{color:#172b43!important}
+#residence-enquiry input::placeholder{color:#7b8794}
+#residence-enquiry button{cursor:pointer}
