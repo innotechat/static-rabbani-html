@@ -369,7 +369,8 @@
                     </div>
                 </div>
 
-                <!-- ... existing code ... -->
+          
+      // Document viewer controls
                 <!-- Landscaped Podium Garden -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
@@ -394,13 +395,21 @@
           <p class="text-sm sm:text-base leading-7 text-slate-600">Explore the residence layouts and room dimensions. Select a configuration to view its architectural plan, then open the drawing for a closer look.</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8" role="group" aria-label="Select residence configuration">
-          <button id="btn-1bhk" type="button" onclick="switchFloorPlan('1bhk')" class="rt-plan-tab is-active">1 BHK</button>
-          <button id="btn-2bhk" type="button" onclick="switchFloorPlan('2bhk-a')" class="rt-plan-tab">2 BHK · Layout A</button>
-          <button id="btn-2bhk-b" type="button" onclick="switchFloorPlan('2bhk-b')" class="rt-plan-tab">2 BHK · Layout B</button>
-          <button id="btn-2bhk-c" type="button" onclick="switchFloorPlan('2bhk-c')" class="rt-plan-tab">2 BHK · Layout C</button>
-          <button id="btn-4bhk" type="button" onclick="switchFloorPlan('4bhk')" class="rt-plan-tab">4 Bedroom</button>
-          <button id="btn-combined" type="button" onclick="switchFloorPlan('combined')" class="rt-plan-tab">Combined Flat 02</button>
+        <div class="mb-8">
+          <div class="rt-plan-tabs-desktop" role="group" aria-label="Select residence configuration">
+            <button id="btn-1bhk" type="button" onclick="switchFloorPlan('1bhk')" class="rt-plan-tab is-active">1 BHK</button>
+            <button id="btn-2bhk" type="button" onclick="switchFloorPlan('2bhk-a')" class="rt-plan-tab">2 BHK · A</button>
+            <button id="btn-2bhk-b" type="button" onclick="switchFloorPlan('2bhk-b')" class="rt-plan-tab">2 BHK · B</button>
+            <button id="btn-2bhk-c" type="button" onclick="switchFloorPlan('2bhk-c')" class="rt-plan-tab">2 BHK · C</button>
+            <button id="btn-4bhk" type="button" onclick="switchFloorPlan('4bhk')" class="rt-plan-tab">4 Bedroom</button>
+            <button id="btn-combined" type="button" onclick="switchFloorPlan('combined')" class="rt-plan-tab">Combined Flat 02</button>
+          </div>
+          <label class="rt-plan-mobile-select">
+            <span>Choose a residence plan</span>
+            <select id="floorplan-select" aria-label="Choose a residence plan" onchange="switchFloorPlan(this.value)">
+              <option value="1bhk">1 BHK · Plan 5</option><option value="2bhk-a">2 BHK · Layout A</option><option value="2bhk-b">2 BHK · Layout B</option><option value="2bhk-c">2 BHK · Layout C</option><option value="4bhk">4 Bedroom Grand</option><option value="combined">Combined Flat 02</option>
+            </select>
+          </label>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 bg-white border border-[#e7dfd1] rounded-2xl overflow-hidden shadow-[0_24px_70px_rgba(30,41,59,.09)]">
@@ -416,6 +425,11 @@
             <span id="plan-tag" class="text-[10px] tracking-[.2em] uppercase font-bold text-[#a17d45]">Compact Residence</span>
             <h3 id="plan-title" class="font-serif text-3xl sm:text-4xl text-[#172b43] mt-3">1 Bedroom Residence</h3>
             <p id="plan-desc" class="text-sm leading-7 text-slate-600 mt-4">A considered one-bedroom layout with living and dining, a private bedroom, kitchen and deck.</p>
+            <div class="mt-6 rounded-xl bg-[#f7f4ed] border border-[#e9e2d7] p-4">
+              <div class="text-[10px] uppercase tracking-[.18em] font-bold text-slate-500 mb-2">Listed size variants · sq. ft.</div>
+              <div id="plan-area-variants" class="text-xl font-semibold tracking-wide text-[#9a7944]">510 · 536 · 559</div>
+              <p class="text-[10px] leading-4 text-slate-500 mt-2">Measurement basis and final saleable area to be verified against approved project documentation.</p>
+            </div>
             <div class="mt-7 border-t border-[#e9e2d7] pt-5">
               <div class="text-[10px] uppercase tracking-[.18em] font-bold text-slate-500 mb-3">Room dimensions</div>
               <dl id="plan-dimensions" class="grid grid-cols-1 gap-3 text-sm"></dl>
@@ -890,6 +904,7 @@
         // Residence plan catalogue — dimensions transcribed from the supplied floor-plans.pdf
         const floorPlanData = {
           '1bhk': {
+            area: '510 · 536 · 559',
             title: '1 Bedroom Compact Residence',
             tag: 'Plan 5 · Left Deck & Vertical Duct',
             desc: 'A compact one-bedroom arrangement with separate living / dining, a private bedroom, kitchen and deck.',
@@ -904,6 +919,7 @@
             ]
           },
           '2bhk-a': {
+            area: '720 · 746 · 772',
             title: '2 Bedroom Residence',
             tag: 'Plan 1 · Right Deck & Top Bathroom Layout',
             desc: 'Two-bedroom layout with a right-side deck, defined dining zone and two bathrooms.',
@@ -919,6 +935,7 @@
             ]
           },
           '2bhk-b': {
+            area: '720 · 746 · 772',
             title: '2 Bedroom Residence',
             tag: 'Plan 2 · Left Living & Bottom Deck Layout',
             desc: 'An alternate two-bedroom arrangement with the living zone to the left and deck along the lower edge.',
@@ -934,6 +951,7 @@
             ]
           },
           '2bhk-c': {
+            area: '720 · 746 · 772',
             title: '2 Bedroom Residence',
             tag: 'Plan 4 · Right Living & Left Bedrooms',
             desc: 'A further two-bedroom alternate layout with living space to the right and bedrooms arranged on the left.',
@@ -949,6 +967,7 @@
             ]
           },
           '4bhk': {
+            area: 'Area to be confirmed',
             title: '4 Bedroom Grand Residence',
             tag: 'Plan 3 · Study & Lift Core',
             desc: 'A larger four-bedroom arrangement with a dedicated study, walk-in wardrobe, servant toilet and lift-core access.',
@@ -965,6 +984,7 @@
             ]
           },
           'combined': {
+            area: '1,230 · 1,294 · 1,308',
             title: 'Combined Flat – 02',
             tag: 'Plan 6 · Duplex / Multi-Suite Unit',
             desc: 'A combined multi-suite layout with generous living, study space, three bedrooms and a dedicated lobby / lift core.',
@@ -995,9 +1015,13 @@
           const tag = document.getElementById('plan-tag');
           const title = document.getElementById('plan-title');
           const desc = document.getElementById('plan-desc');
+          const area = document.getElementById('plan-area-variants');
+          const mobileSelect = document.getElementById('floorplan-select');
           if (tag) tag.textContent = data.tag;
           if (title) title.textContent = data.title;
           if (desc) desc.textContent = data.desc;
+          if (area) area.textContent = data.area;
+          if (mobileSelect) mobileSelect.value = type;
           const list = document.getElementById('plan-dimensions');
           if (list) list.innerHTML = data.dimensions.map(([label,value]) =>
             '<div class="flex items-start justify-between gap-4 border-b border-[#eee8de] pb-2"><dt class="text-slate-500">' + label + '</dt><dd class="text-right font-semibold text-[#24364b]">' + value + '</dd></div>'
@@ -1054,7 +1078,7 @@
             closeBrochureModal();
         }
 
-      <!-- ... existing code ... -->
+      
         // Document Viewer Modal Controls
         function viewDoc(title, url) {
             const modal = document.getElementById('doc-modal');
@@ -1100,24 +1124,25 @@
         window.viewDoc = viewDoc;
         window.closeDocModal = closeDocModal;
 
-        window.openFloorPlanZoom=openFloorPlanZoom; window.closeFloorPlanZoom=closeFloorPlanZoom; window.toggleTheme=toggleTheme;
+        window.switchFloorPlan = switchFloorPlan;
+        window.openFloorPlanZoom = openFloorPlanZoom;
+        window.closeFloorPlanZoom = closeFloorPlanZoom;
+        window.toggleTheme = toggleTheme;
         document.addEventListener('DOMContentLoaded',()=>{
             initializeTheme();
             switchFloorPlan('1bhk');
 
-            // Close the mobile navigation after a visitor selects a destination.
+            // Robust mobile navigation close: close after in-page selection, outside tap, or Escape.
             const mobileNav = document.querySelector('nav details');
             if (mobileNav) {
-                mobileNav.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileNav.open = false;
-                    });
-                });
                 document.addEventListener('click', event => {
-                    if (mobileNav.open && !mobileNav.contains(event.target)) {
+                    const link = event.target.closest('nav details a[href^="#"]');
+                    if (link) {
                         mobileNav.open = false;
+                        return;
                     }
-                });
+                    if (mobileNav.open && !mobileNav.contains(event.target)) mobileNav.open = false;
+                }, true);
                 document.addEventListener('keydown', event => {
                     if (event.key === 'Escape') mobileNav.open = false;
                 });
