@@ -1025,3 +1025,80 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
   #compliance .rt-rera-qr img { width:78px; height:78px; }
   #compliance .rt-rera-document { grid-template-columns:32px minmax(0,1fr) auto; gap:9px; padding:12px 10px; }
 }
+
+
+/* Mobile-first hardening for the MahaRERA section.
+   Kept strictly inside #compliance so existing page sections are untouched. */
+@media screen and (max-width: 768px) {
+  #compliance.rt-rera-section {
+    display:block !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+    padding:42px 16px !important;
+    overflow:visible !important;
+    background:#101a29 !important;
+    color:#e8edf2 !important;
+  }
+  #compliance .rt-rera-wrap { width:100% !important; max-width:100% !important; margin:0 auto !important; }
+  #compliance .rt-rera-heading { display:block !important; width:100% !important; margin:0 auto 22px !important; text-align:left !important; }
+  #compliance .rt-rera-heading h2 { font-size:clamp(21px,6vw,28px) !important; line-height:1.2 !important; color:#fff !important; }
+  #compliance .rt-rera-heading p { font-size:12px !important; color:#bdc8d4 !important; }
+  #compliance .rt-rera-overview { display:flex !important; flex-direction:column !important; width:100% !important; gap:14px !important; }
+  #compliance .rt-rera-registration,
+  #compliance .rt-rera-disclosures,
+  #compliance .rt-rera-qr-card {
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    padding:16px !important;
+    border:1px solid rgba(212,175,55,.28) !important;
+    border-radius:12px !important;
+    background:#0b1423 !important;
+    color:#e8edf2 !important;
+  }
+  #compliance .rt-rera-brand { display:flex !important; align-items:center !important; gap:11px !important; margin-bottom:15px !important; }
+  #compliance .rt-rera-brand h3 { color:#fff !important; font-size:17px !important; }
+  #compliance .rt-rera-brand p { color:#bdc8d4 !important; }
+  #compliance .rt-rera-number { font-size:16px !important; color:#f0d99f !important; }
+  #compliance .rt-rera-facts { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:0 12px !important; }
+  #compliance .rt-rera-facts dt { color:#aab7c5 !important; font-size:10px !important; }
+  #compliance .rt-rera-facts dd { color:#f0f3f6 !important; font-size:11px !important; overflow-wrap:anywhere !important; }
+  #compliance .rt-rera-side { display:flex !important; flex-direction:column !important; width:100% !important; gap:14px !important; }
+  #compliance .rt-rera-disclosures h3 { color:#fff !important; font-size:19px !important; }
+  #compliance .rt-rera-disclosure-grid { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:8px !important; }
+  #compliance .rt-rera-disclosure-grid div { min-width:0 !important; padding:10px !important; border:1px solid rgba(148,163,184,.2) !important; border-radius:8px !important; background:rgba(255,255,255,.035) !important; }
+  #compliance .rt-rera-disclosure-grid span { color:#aab7c5 !important; font-size:9px !important; }
+  #compliance .rt-rera-disclosure-grid strong { color:#f0f3f6 !important; font-size:10px !important; overflow-wrap:anywhere !important; }
+  #compliance .rt-rera-note { color:#aab7c5 !important; font-size:10px !important; }
+  #compliance .rt-rera-qr-card { display:flex !important; align-items:center !important; gap:12px !important; }
+  #compliance .rt-rera-qr { display:grid !important; flex:0 0 88px !important; width:88px !important; height:88px !important; }
+  #compliance .rt-rera-qr img { width:76px !important; height:76px !important; }
+  #compliance .rt-rera-qr-card strong { color:#fff !important; }
+  #compliance .rt-rera-qr-card p { color:#bdc8d4 !important; }
+  #compliance .rt-rera-documents { display:block !important; width:100% !important; margin-top:20px !important; padding-top:18px !important; }
+  #compliance .rt-rera-documents-heading h3 { color:#fff !important; font-size:19px !important; }
+  #compliance .rt-rera-documents-heading p { color:#bdc8d4 !important; }
+  #compliance .rt-rera-document-grid { display:grid !important; grid-template-columns:minmax(0,1fr) !important; gap:9px !important; width:100% !important; }
+  #compliance .rt-rera-document {
+    display:grid !important;
+    grid-template-columns:30px minmax(0,1fr) !important;
+    align-items:center !important;
+    gap:8px 10px !important;
+    width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    padding:12px !important;
+    border:1px solid rgba(148,163,184,.2) !important;
+    border-radius:9px !important;
+    background:#0b1423 !important;
+  }
+  #compliance .rt-rera-document h4 { color:#fff !important; font-size:11px !important; }
+  #compliance .rt-rera-document p { color:#aab7c5 !important; font-size:10px !important; overflow-wrap:anywhere !important; }
+  #compliance .rt-rera-document > a { grid-column:2 !important; justify-self:start !important; white-space:normal !important; font-size:11px !important; }
+  #compliance .rt-rera-document > a.rt-rera-download { margin:0 0 0 10px !important; padding-left:10px !important; border-left:1px solid rgba(212,175,55,.35) !important; }
+}
+@media screen and (max-width: 380px) {
+  #compliance .rt-rera-facts,
+  #compliance .rt-rera-disclosure-grid { grid-template-columns:minmax(0,1fr) !important; }
+}
