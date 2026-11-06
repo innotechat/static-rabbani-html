@@ -1102,3 +1102,76 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
   #compliance .rt-rera-facts,
   #compliance .rt-rera-disclosure-grid { grid-template-columns:minmax(0,1fr) !important; }
 }
+
+
+/* Desktop and mobile RERA polish: heading contrast and balanced PDF actions.
+   All selectors are scoped to #compliance to protect the rest of the website. */
+#compliance .rt-rera-heading h2,
+#compliance .rt-rera-disclosures h3,
+#compliance .rt-rera-documents-heading h3,
+#compliance .rt-rera-brand h3 {
+  color:#fff !important;
+}
+#compliance .rt-rera-number {
+  color:#f0d99f !important;
+}
+#compliance .rt-rera-document {
+  grid-template-columns:34px minmax(0,1fr) auto;
+}
+#compliance .rt-rera-actions {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:nowrap;
+}
+#compliance .rt-rera-actions > a {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  box-sizing:border-box;
+  min-width:82px;
+  min-height:34px;
+  padding:0 10px;
+  border:1px solid rgba(212,175,55,.38);
+  border-radius:6px;
+  background:rgba(212,175,55,.07);
+  color:#e2c27f !important;
+  font-size:10px;
+  font-weight:700;
+  line-height:1;
+  text-align:center;
+  text-decoration:none;
+  white-space:nowrap;
+}
+#compliance .rt-rera-actions > a:hover {
+  background:rgba(212,175,55,.16);
+  border-color:rgba(212,175,55,.65);
+  text-decoration:none;
+}
+#compliance .rt-rera-actions > a svg {
+  width:12px;
+  height:12px;
+}
+#compliance .rt-rera-actions > a.rt-rera-download {
+  border-color:rgba(212,175,55,.55);
+  background:rgba(212,175,55,.15);
+}
+@media screen and (max-width:768px) {
+  #compliance .rt-rera-document {
+    grid-template-columns:30px minmax(0,1fr) !important;
+  }
+  #compliance .rt-rera-actions {
+    grid-column:2 !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    margin-top:4px !important;
+  }
+  #compliance .rt-rera-actions > a {
+    min-width:88px !important;
+    min-height:34px !important;
+    padding:0 10px !important;
+    font-size:11px !important;
+  }
+}
