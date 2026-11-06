@@ -908,3 +908,14 @@ section img[src*="kids-zone.webp"]:hover { filter: saturate(.59) brightness(1) c
 section img[src*="laundry.webp"]:hover { filter: saturate(.47) brightness(.99) contrast(.94) sepia(.025) !important; }
 section img[src*="carwash.webp"]:hover { filter: saturate(.50) brightness(.99) contrast(.95) sepia(.015) !important; }
 section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) contrast(.94) sepia(.025) !important; }
+
+
+/* Residence plan selector — responsive, accessible and visually consistent */
+.rt-plan-tabs-desktop{display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem}
+.rt-plan-tab{appearance:none;border:1px solid #dfd5c4;background:#fff;color:#34445a;border-radius:999px;padding:.72rem 1.05rem;font:600 11px/1.2 'Plus Jakarta Sans',sans-serif;letter-spacing:.035em;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease}
+.rt-plan-tab:hover{border-color:#a88750;color:#172b43;background:#fbf8f1}
+.rt-plan-tab.is-active{background:#172b43;color:#fff;border-color:#172b43;box-shadow:0 5px 16px rgba(23,43,67,.14)}
+.rt-plan-mobile-select{display:none}
+.rt-plan-mobile-select span{display:block;margin:0 0 .45rem .15rem;color:#8a6b3d;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rt-plan-mobile-select select{width:100%;min-height:48px;padding:.75rem 2.5rem .75rem 1rem;border:1px solid #d9cfbe;border-radius:12px;background:#fff;color:#172b43;font:600 13px 'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 14px rgba(30,41,59,.05)}
+@media(max-width:639px){.rt-plan-tabs-desktop{display:none}.rt-plan-mobile-select{display:block}}
