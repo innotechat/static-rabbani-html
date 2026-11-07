@@ -142,8 +142,9 @@
       <p>At the heart of Byculla East, Rabbani Tower brings residences, lifestyle spaces and essential building infrastructure together in one distinctive address.</p>
     </div>
     <div class="rt-intro-facts">
+      <div><span class="rt-fact-number">41</span><span class="rt-fact-label">Storeys</span></div>
       <div><span class="rt-fact-number">6</span><span class="rt-fact-label">Podium Parking Levels</span></div>
-      <div><span class="rt-fact-number">34</span><span class="rt-fact-label">Commercial Units</span></div>
+      <div><span class="rt-fact-number">34</span><span class="rt-fact-label">Office / Commercial Units</span></div>
       <div><span class="rt-fact-number">199</span><span class="rt-fact-label">Parking Bays</span></div>
     </div>
   </div>
@@ -393,16 +394,13 @@
         <div class="mb-8">
           <div class="rt-plan-tabs-desktop" role="group" aria-label="Select residence configuration">
             <button id="btn-1bhk" type="button" onclick="switchFloorPlan('1bhk')" class="rt-plan-tab is-active">1 BHK</button>
-            <button id="btn-2bhk" type="button" onclick="switchFloorPlan('2bhk-a')" class="rt-plan-tab">2 BHK · A</button>
-            <button id="btn-2bhk-b" type="button" onclick="switchFloorPlan('2bhk-b')" class="rt-plan-tab">2 BHK · B</button>
-            <button id="btn-2bhk-c" type="button" onclick="switchFloorPlan('2bhk-c')" class="rt-plan-tab">2 BHK · C</button>
-            <button id="btn-4bhk" type="button" onclick="switchFloorPlan('4bhk')" class="rt-plan-tab">4 Bedroom</button>
-            <button id="btn-combined" type="button" onclick="switchFloorPlan('combined')" class="rt-plan-tab">Combined Flat 02</button>
+            <button id="btn-2bhk" type="button" onclick="switchFloorPlan('2bhk-a')" class="rt-plan-tab">2 BHK · Layout A</button>
+            <button id="btn-2bhk-b" type="button" onclick="switchFloorPlan('2bhk-b')" class="rt-plan-tab">2 BHK · Layout B</button>
           </div>
           <label class="rt-plan-mobile-select">
             <span>Choose a residence plan</span>
             <select id="floorplan-select" aria-label="Choose a residence plan" onchange="switchFloorPlan(this.value)">
-              <option value="1bhk">1 BHK · Plan 5</option><option value="2bhk-a">2 BHK · Layout A</option><option value="2bhk-b">2 BHK · Layout B</option><option value="2bhk-c">2 BHK · Layout C</option><option value="4bhk">4 Bedroom Grand</option><option value="combined">Combined Flat 02</option>
+              <option value="1bhk">1 BHK · Plan 5</option><option value="2bhk-a">2 BHK · Layout A</option><option value="2bhk-b">2 BHK · Layout B</option>
             </select>
           </label>
         </div>
@@ -1055,11 +1053,16 @@
         };
 
 
+        // Public display allow-list. All six floorPlanData records remain intact for future reactivation.
+        const visibleFloorPlanTypes = ['1bhk', '2bhk-a', '2bhk-b'];
+
         function renderMobileFloorPlans() {
           const gallery = document.getElementById('floorplan-mobile-gallery');
           if (!gallery) return;
           gallery.replaceChildren();
-          Object.entries(floorPlanData).forEach(([type, data], index) => {
+          visibleFloorPlanTypes.forEach((type, index) => {
+            const data = floorPlanData[type];
+            if (!data) return;
             const card = document.createElement('article');
             card.className = 'rt-mobile-plan-card';
 
@@ -1133,6 +1136,7 @@
         }
 
         function switchFloorPlan(type) {
+          if (!visibleFloorPlanTypes.includes(type)) return;
           const data = floorPlanData[type];
           if (!data) return;
           document.querySelectorAll('.rt-plan-tab').forEach(btn => btn.classList.remove('is-active'));
