@@ -1175,3 +1175,51 @@ section img[src*="courtyard.webp"]:hover { filter: saturate(.60) brightness(1) c
     font-size:11px !important;
   }
 }
+
+
+/* Rabbani Tower approved static hero sequence: clean image, then text-led image. */
+#overview .rt-hero-visual { display:flex; flex-direction:column; gap:0; position:relative; }
+#overview .rt-hero-static-image { position:relative; display:block; width:100%; min-height:clamp(360px,58vw,720px); overflow:hidden; background:#26384a; }
+#overview .rt-hero-static-image > img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center 35%; filter:saturate(.68) contrast(1.02) brightness(.88); }
+#overview .rt-hero-static-clean { min-height:clamp(300px,48vw,620px); }
+#overview .rt-hero-static-clean > img { filter:none; }
+#overview .rt-hero-static-feature { min-height:clamp(420px,58vw,720px); }
+#overview .rt-hero-static-feature .rt-hero-shade,
+#overview .rt-hero-static-feature .rt-hero-copy,
+#overview .rt-hero-static-feature .rt-hero-caption { position:relative; z-index:2; }
+#overview .rt-hero-static-feature .rt-hero-shade { position:absolute; inset:0; z-index:1; }
+#overview .rt-hero-static-feature .rt-hero-caption { position:absolute; right:clamp(20px,5vw,64px); bottom:24px; }
+@media(max-width:640px) {
+  #overview .rt-hero-static-clean { min-height:300px; }
+  #overview .rt-hero-static-feature { min-height:440px; }
+}
+
+/* Mobile residence gallery. Desktop selector and detail panel remain unchanged. */
+#floorplans .rt-floorplan-mobile-gallery { display:none; }
+@media(max-width:639px) {
+  #floorplans .rt-plan-tabs-desktop,
+  #floorplans .rt-plan-mobile-select,
+  #floorplans .rt-floorplan-desktop-panel { display:none !important; }
+  #floorplans .rt-floorplan-mobile-gallery { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
+  #floorplans .rt-mobile-plan-card { min-width:0; overflow:hidden; border:1px solid #e7dfd1; border-radius:16px; background:#fff; box-shadow:0 12px 32px rgba(30,41,59,.07); }
+  #floorplans .rt-mobile-plan-heading { padding:18px 18px 12px; }
+  #floorplans .rt-mobile-plan-heading h3 { margin:0; color:#172b43; font:600 23px/1.2 'Playfair Display',Georgia,serif; }
+  #floorplans .rt-mobile-plan-heading p { margin:6px 0 0; color:#8a6b3d; font-size:10px; font-weight:700; line-height:1.5; letter-spacing:.06em; text-transform:uppercase; }
+  #floorplans .rt-mobile-plan-image-button { display:flex; align-items:center; justify-content:center; width:100%; min-height:260px; padding:12px; border:0; border-top:1px solid #eee8de; border-bottom:1px solid #eee8de; background:#f0ede6; cursor:zoom-in; }
+  #floorplans .rt-mobile-plan-image-button img { display:block; width:100%; max-height:460px; object-fit:contain; }
+  #floorplans .rt-mobile-plan-details { padding:17px 18px 19px; }
+  #floorplans .rt-mobile-plan-label { display:block; margin:0 0 6px; color:#7c8794; font-size:9px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+  #floorplans .rt-mobile-plan-area { margin:0 0 12px; color:#9a7944; font-size:21px; font-weight:700; letter-spacing:.02em; }
+  #floorplans .rt-mobile-plan-description { margin:0 0 18px; color:#526174; font-size:12px; line-height:1.7; }
+  #floorplans .rt-mobile-plan-dimensions { display:grid; gap:0; margin:0 0 16px; }
+  #floorplans .rt-mobile-plan-dimensions > div { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:9px 0; border-bottom:1px solid #eee8de; font-size:11px; line-height:1.5; }
+  #floorplans .rt-mobile-plan-dimensions dt { color:#64748b; flex:0 0 38%; }
+  #floorplans .rt-mobile-plan-dimensions dd { margin:0; color:#24364b; font-weight:600; text-align:right; }
+  #floorplans .rt-mobile-plan-note { margin:0; color:#7b8794; font-size:10px; line-height:1.6; }
+  #floorplans .rt-mobile-plan-enquiry { display:inline-flex; align-items:center; min-height:42px; margin-top:15px; padding:0 14px; border:1px solid #cbb58e; border-radius:8px; background:#172b43; color:#fff; font-size:10px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+}
+@media(max-width:360px) {
+  #floorplans .rt-mobile-plan-heading h3 { font-size:21px; }
+  #floorplans .rt-mobile-plan-image-button { min-height:220px; }
+  #floorplans .rt-mobile-plan-dimensions > div { font-size:10px; }
+}
