@@ -175,17 +175,19 @@
                     </div>
                 </div>
 
-                <!-- Indoor Lap Pool — retained for future reactivation; hidden from public display -->
-                <div hidden class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://assets.rabbanitower.com/indoor-swimming-pool.webp" alt="Indoor Swimming Pool" class="w-full h-full object-cover object-center">
+                <!-- Indoor Lap Pool — retained in a non-rendering template for future reactivation -->
+                <template id="indoor-pool-card-template">
+                    <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://assets.rabbanitower.com/indoor-swimming-pool.webp" alt="Indoor Swimming Pool" class="w-full h-full object-cover object-center">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2.5 py-1 bg-gold-500/10 rounded">All-Weather Swimming</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-2">Indoor Olympic Pool</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Enclosed climate-controlled swimming bay designed for morning fitness and year-round laps.</p>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2.5 py-1 bg-gold-500/10 rounded">All-Weather Swimming</span>
-                        <h3 class="font-serif text-xl font-bold text-white mt-2">Indoor Olympic Pool</h3>
-                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">Enclosed climate-controlled swimming bay designed for morning fitness and year-round laps.</p>
-                    </div>
-                </div>
+                </template>
 
                 <!-- Hydro Jacuzzi -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
