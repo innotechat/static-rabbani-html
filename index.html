@@ -85,7 +85,7 @@
         body[data-theme="light"] nav { background:rgba(255,253,248,.96); }
         body[data-theme="light"] .gold-gradient-text { background-image:linear-gradient(135deg,#8b6508,#aa7c11,#6d5010); }
     </style>
-    <link rel="stylesheet" href="/assets/css/rabbani-premium-light.css?v=8">
+    <link rel="stylesheet" href="/assets/css/rabbani-premium-light.css?v=9">
 </head>
 <body class="overflow-x-hidden custom-scrollbar selection:bg-gold-500 selection:text-black">
 
@@ -122,18 +122,18 @@
  </div>
 </nav>
 
-<!-- PRIMARY HERO SECTION: APPROVED THREE-SLIDE SHOWCASE -->
+<!-- STATIC HERO SHOWCASE: CLEAN IMAGE FIRST, TEXT-LED IMAGE SECOND -->
 <section id="overview" class="rt-editorial-hero relative overflow-hidden">
- <div class="rt-hero-visual" data-hero-slider aria-roledescription="carousel" aria-label="Rabbani Tower project images">
-  <div class="rt-hero-slide is-active" data-hero-slide="0" aria-hidden="false">
-   <img src="https://assets.rabbanitower.com/tower-landmark.webp" alt="Rabbani Tower architectural elevation" fetchpriority="high">
+ <div class="rt-hero-visual" aria-label="Rabbani Tower project images">
+  <div class="rt-hero-static-image rt-hero-static-clean">
+   <img src="https://assets.rabbanitower.com/tower-landmark.webp" alt="Rabbani Tower architectural elevation — clean image" fetchpriority="high">
+  </div>
+  <div class="rt-hero-static-image rt-hero-static-feature">
+   <img src="https://assets.rabbanitower.com/tower-landmark.webp" alt="Rabbani Tower architectural elevation with project introduction" loading="lazy">
    <div class="rt-hero-shade"></div>
    <div class="rt-hero-copy"><span class="rt-eyebrow">VENUS GRANDEUR · SOUTH MUMBAI</span><h1>Rising With Grace.<br><em>Rooted In Legacy.</em></h1><p>Introducing Rabbani Tower — a landmark residential development by ITG VPIL &amp; P. Builders in Byculla East, South Mumbai.</p><div class="rt-hero-actions"><a href="#floorplans" class="rt-button rt-button-primary">Explore Residences</a><a href="#location" class="rt-button rt-button-ghost">Discover the Location</a></div></div>
    <div class="rt-hero-caption"><span>ARCHITECTURAL ELEVATION</span></div>
   </div>
-  <div class="rt-hero-slide" data-hero-slide="1" aria-hidden="true" inert><img src="https://assets.rabbanitower.com/tower-landmark.webp" alt="Rabbani Tower architectural elevation without text overlay" loading="lazy"></div>
-  <div class="rt-hero-slide" data-hero-slide="2" aria-hidden="true" inert><img src="https://assets.rabbanitower.com/tower-landmark-2.webp" alt="Rabbani Tower additional project view" loading="lazy"></div>
-  <div class="rt-hero-controls" aria-label="Hero slider controls"><button type="button" class="rt-hero-arrow" data-hero-prev aria-label="Previous hero image">‹</button><div class="rt-hero-dots"><button type="button" class="rt-hero-dot is-active" data-hero-dot="0" aria-label="Show slide 1" aria-current="true"></button><button type="button" class="rt-hero-dot" data-hero-dot="1" aria-label="Show slide 2" aria-current="false"></button><button type="button" class="rt-hero-dot" data-hero-dot="2" aria-label="Show slide 3" aria-current="false"></button></div><button type="button" class="rt-hero-arrow" data-hero-next aria-label="Next hero image">›</button></div>
  </div>
 <div class="rt-project-intro">
     <div class="rt-intro-lead">
@@ -407,7 +407,7 @@
           </label>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 bg-white border border-[#e7dfd1] rounded-2xl overflow-hidden shadow-[0_24px_70px_rgba(30,41,59,.09)]">
+        <div class="rt-floorplan-desktop-panel grid grid-cols-1 lg:grid-cols-12 bg-white border border-[#e7dfd1] rounded-2xl overflow-hidden shadow-[0_24px_70px_rgba(30,41,59,.09)]">
           <div class="lg:col-span-7 p-3 sm:p-6 bg-[#f0ede6]">
             <button type="button" onclick="openFloorPlanZoom()" class="relative group w-full min-h-[340px] sm:min-h-[520px] rounded-xl bg-white border border-[#e4ddcf] flex items-center justify-center p-2 sm:p-5 overflow-hidden" aria-label="Open enlarged residence floor plan">
               <img id="floorplan-image" src="https://assets.rabbanitower.com/1bhk-layout.webp" alt="Rabbani Tower 1 BHK floor plan" class="w-full max-h-[620px] object-contain transition-transform duration-300 group-hover:scale-[1.015]" loading="eager">
@@ -435,6 +435,7 @@
             </div>
           </div>
         </div>
+        <div id="floorplan-mobile-gallery" class="rt-floorplan-mobile-gallery" aria-label="All residence floor plans"></div>
       </div>
     </section>
 
@@ -1053,6 +1054,84 @@
           }
         };
 
+
+        function renderMobileFloorPlans() {
+          const gallery = document.getElementById('floorplan-mobile-gallery');
+          if (!gallery) return;
+          gallery.replaceChildren();
+          Object.entries(floorPlanData).forEach(([type, data], index) => {
+            const card = document.createElement('article');
+            card.className = 'rt-mobile-plan-card';
+
+            const heading = document.createElement('div');
+            heading.className = 'rt-mobile-plan-heading';
+            const title = document.createElement('h3');
+            title.textContent = data.title;
+            const tag = document.createElement('p');
+            tag.textContent = data.tag;
+            heading.append(title, tag);
+
+            const imageButton = document.createElement('button');
+            imageButton.type = 'button';
+            imageButton.className = 'rt-mobile-plan-image-button';
+            imageButton.setAttribute('aria-label', 'Enlarge ' + data.title + ' floor plan');
+            imageButton.addEventListener('click', () => {
+              switchFloorPlan(type);
+              openFloorPlanZoom();
+            });
+            const image = document.createElement('img');
+            image.src = data.image;
+            image.alt = 'Rabbani Tower ' + data.title + ' — ' + data.tag;
+            image.loading = index === 0 ? 'eager' : 'lazy';
+            image.decoding = 'async';
+            if (index === 0) image.fetchPriority = 'high';
+            imageButton.append(image);
+
+            const details = document.createElement('div');
+            details.className = 'rt-mobile-plan-details';
+            const areaLabel = document.createElement('span');
+            areaLabel.className = 'rt-mobile-plan-label';
+            areaLabel.textContent = 'Listed size variants · sq. ft.';
+            const area = document.createElement('p');
+            area.className = 'rt-mobile-plan-area';
+            area.textContent = data.area;
+            const description = document.createElement('p');
+            description.className = 'rt-mobile-plan-description';
+            description.textContent = data.desc;
+
+            const dimensionsTitle = document.createElement('h4');
+            dimensionsTitle.className = 'rt-mobile-plan-label';
+            dimensionsTitle.textContent = 'Room dimensions';
+            const dimensions = document.createElement('dl');
+            dimensions.className = 'rt-mobile-plan-dimensions';
+            data.dimensions.forEach(([label, value]) => {
+              const row = document.createElement('div');
+              const term = document.createElement('dt');
+              term.textContent = label;
+              const valueNode = document.createElement('dd');
+              valueNode.textContent = value;
+              row.append(term, valueNode);
+              dimensions.append(row);
+            });
+
+            const note = document.createElement('p');
+            note.className = 'rt-mobile-plan-note';
+            note.textContent = 'Room dimensions are reproduced from the supplied floor-plan document. Final area and configuration should be verified against approved project documentation.';
+            const enquiry = document.createElement('button');
+            enquiry.type = 'button';
+            enquiry.className = 'rt-mobile-plan-enquiry';
+            enquiry.textContent = 'Enquire about this residence ↗';
+            enquiry.addEventListener('click', () => {
+              switchFloorPlan(type);
+              openResidenceEnquiry();
+            });
+
+            details.append(areaLabel, area, description, dimensionsTitle, dimensions, note, enquiry);
+            card.append(heading, imageButton, details);
+            gallery.append(card);
+          });
+        }
+
         function switchFloorPlan(type) {
           const data = floorPlanData[type];
           if (!data) return;
@@ -1218,6 +1297,7 @@
         document.addEventListener('DOMContentLoaded',()=>{
             initializeTheme();
             switchFloorPlan('1bhk');
+            renderMobileFloorPlans();
 
             // Robust mobile navigation close: close after in-page selection, outside tap, or Escape.
             const mobileNav = document.querySelector('nav details');
@@ -1236,5 +1316,5 @@
             }
         });
     </script>
-<script>(()=>{const root=document.querySelector('[data-hero-slider]');if(!root)return;const slides=[...root.querySelectorAll('[data-hero-slide]')],dots=[...root.querySelectorAll('[data-hero-dot]')];let current=0;const show=n=>{current=(n+slides.length)%slides.length;slides.forEach((s,i)=>{const on=i===current;s.classList.toggle('is-active',on);s.setAttribute('aria-hidden',String(!on));if(on)s.removeAttribute('inert');else s.setAttribute('inert','')});dots.forEach((d,i)=>{const on=i===current;d.classList.toggle('is-active',on);d.setAttribute('aria-current',String(on))})};root.querySelector('[data-hero-prev]')?.addEventListener('click',()=>show(current-1));root.querySelector('[data-hero-next]')?.addEventListener('click',()=>show(current+1));dots.forEach((d,i)=>d.addEventListener('click',()=>show(i)));let x=0;root.addEventListener('touchstart',e=>{x=e.changedTouches[0].clientX},{passive:true});root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>55)show(current+(dx<0?1:-1))},{passive:true})})();</script></body>
+</body>
 </html>
