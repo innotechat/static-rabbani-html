@@ -84,7 +84,8 @@
         body[data-theme="light"] .border-slate-800 { border-color:#ded6c8 !important; }
         body[data-theme="light"] nav { background:rgba(255,253,248,.96); }
         body[data-theme="light"] .gold-gradient-text { background-image:linear-gradient(135deg,#8b6508,#aa7c11,#6d5010); }
-    </style>
+    #floorplans .rt-mobile-plan-dimensions, #floorplans .rt-mobile-plan-details h4.rt-mobile-plan-label { display:none !important; }
+</style>
     <link rel="stylesheet" href="/assets/css/rabbani-premium-light.css?v=9">
 </head>
 <body class="overflow-x-hidden custom-scrollbar selection:bg-gold-500 selection:text-black">
@@ -158,9 +159,9 @@
     <section id="wellness" class="py-24 px-6 relative border-t border-gold-500/10 bg-navy-950/40">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-xs font-bold text-gold-400 tracking-widest uppercase mb-2">Showspireia Wellness Experience</div>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Rejuvenation & Hydro-Therapy</h2>
-                <p class="text-slate-300 font-light">An entire dedicated podium level designed for health, relaxation, and mental clarity.</p>
+                <div class="text-xs font-bold text-gold-400 tracking-widest uppercase mb-2">Wellness & Shared Spaces</div>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Wellness, Relaxation & Welcome</h2>
+                <p class="text-slate-300 font-light">Swimming pool, hydro-therapy, sauna, steam room and welcome lobby.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -176,18 +177,7 @@
                 </div>
 
                 <!-- Indoor Lap Pool — retained in a non-rendering template for future reactivation -->
-                <template id="indoor-pool-card-template">
-                    <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="https://assets.rabbanitower.com/indoor-swimming-pool.webp" alt="Indoor Swimming Pool" class="w-full h-full object-cover object-center">
-                        </div>
-                        <div class="p-6">
-                            <span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2.5 py-1 bg-gold-500/10 rounded">All-Weather Swimming</span>
-                            <h3 class="font-serif text-xl font-bold text-white mt-2">Indoor Olympic Pool</h3>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Enclosed climate-controlled swimming bay designed for morning fitness and year-round laps.</p>
-                        </div>
-                    </div>
-                </template>
+                
 
                 <!-- Hydro Jacuzzi -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
@@ -232,7 +222,7 @@
                     </div>
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2.5 py-1 bg-gold-500/10 rounded">Grand Entrance</span>
-                        <h3 class="font-serif text-xl font-bold text-white mt-2">Showspireia Welcome Lobby</h3>
+                        <h3 class="font-serif text-xl font-bold text-white mt-2">Welcome Lobby</h3>
                         <p class="text-xs text-slate-400 mt-2 leading-relaxed">Air-conditioned grand lobby with concierge desks and plush guest waiting alcoves.</p>
                     </div>
                 </div>
@@ -247,7 +237,7 @@
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="text-xs font-bold text-gold-400 tracking-widest uppercase mb-2">Unmatched Resident Infrastructure</div>
                 <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Elite Lifestyle & Utility Amenities</h2>
-                <p class="text-slate-300 font-light">From private entertainment lounges to basement automated services, every detail is engineered for effortless living.</p>
+                <p class="text-slate-300 font-light">Lifestyle and utility amenities presented in the project information.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -310,7 +300,7 @@
                         <p class="text-xs text-slate-400 mt-1">Safe anti-microbial padded play zones, ball pits, and learning desks.</p>
                     </div>
                 </div>
-                <!-- Industrial Laundromat -->
+                <!-- Gym & Cardio -->
                 <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
 <div class="h-44 overflow-hidden relative"><img src="https://assets.rabbanitower.com/gym-cardio.webp" alt="Gym & Cardio" class="w-full h-full object-cover"></div>
 <div class="p-5"><span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2 py-0.5 bg-gold-500/10 rounded">Fitness</span><h3 class="font-serif text-lg font-bold text-white mt-1">Gym & Cardio</h3><p class="text-xs text-slate-400 mt-1">Gymnasium and equipment for fitness lovers.</p></div></div>
@@ -335,7 +325,7 @@
                     <div class="p-5">
                         <span class="text-[10px] font-bold text-gold-400 uppercase tracking-widest px-2 py-0.5 bg-gold-500/10 rounded">Nature & Greenery</span>
                         <h3 class="font-serif text-lg font-bold text-white mt-1">Podium Garden</h3>
-                        <p class="text-xs text-slate-400 mt-1">Ambient lighting pathways, water features, and senior relaxation decks.</p>
+                        <p class="text-xs text-slate-400 mt-1">Ambient lighting pathways, water features and senior relaxation decks.</p>
                     </div>
                 </div>
             </div>
@@ -389,16 +379,15 @@
             <h3 id="plan-title" class="font-serif text-3xl sm:text-4xl text-[#172b43] mt-3">1 Bedroom Residence</h3>
             <p id="plan-desc" class="text-sm leading-7 text-slate-600 mt-4">A considered one-bedroom layout with living and dining, a private bedroom, kitchen and deck.</p>
             <div class="mt-6 rounded-xl bg-[#f7f4ed] border border-[#e9e2d7] p-4">
-              <div class="text-[10px] uppercase tracking-[.18em] font-bold text-slate-500 mb-2">Listed size variants · sq. ft.</div>
-              <div id="plan-area-variants" class="text-xl font-semibold tracking-wide text-[#9a7944]">510 · 536 · 559</div>
+              <div class="text-[10px] uppercase tracking-[.18em] font-bold text-slate-500 mb-2">Listed size · sq. ft.</div>
+              <div id="plan-area-variants" class="text-xl font-semibold tracking-wide text-[#9a7944]">510 onwards</div>
               <p class="text-[10px] leading-4 text-slate-500 mt-2">Measurement basis and final saleable area to be verified against approved project documentation.</p>
             </div>
             <div class="mt-7 border-t border-[#e9e2d7] pt-5">
-              <div class="text-[10px] uppercase tracking-[.18em] font-bold text-slate-500 mb-3">Room dimensions</div>
-              <dl id="plan-dimensions" class="grid grid-cols-1 gap-3 text-sm"></dl>
+              <div class="hidden"><dl id="plan-dimensions" class="grid grid-cols-1 gap-3 text-sm"></dl></div>
             </div>
             <div class="mt-7 pt-5 border-t border-[#e9e2d7]">
-              <p class="text-[11px] leading-5 text-slate-500">Room dimensions are reproduced from the supplied floor-plan document. Unit area / saleable area and final configuration should be verified against approved project documentation.</p>
+              <p class="text-[11px] leading-5 text-slate-500">Illustrative 3D layout view · Refer to approved plans for final specifications. Measurement basis and final saleable area to be verified against approved project documentation.</p>
               <button type="button" onclick="openResidenceEnquiry()" class="inline-flex items-center gap-2 mt-5 text-xs font-bold tracking-[.12em] uppercase text-[#8a6b3d] hover:text-[#172b43]">Enquire about this residence <span aria-hidden="true">↗</span></button>
             </div>
           </div>
@@ -695,9 +684,8 @@
           <div><dt>Project Type</dt><dd>Mixed</dd></div>
           <div><dt>Project Status</dt><dd>Active</dd></div>
           <div><dt>Registration Date</dt><dd>18/03/2026</dd></div>
-          <div><dt>Original Completion Date</dt><dd>31/12/2033</dd></div>
-          <div><dt>Revised Completion Date</dt><dd>30/04/2034</dd></div>
           <div><dt>Building / CC issued up to</dt><dd>VENUS GRANDEUR / Plinth</dd></div>
+          <div><dt>Joint Venture</dt><dd>ITG VPIL &amp; P. Builders</dd></div>
         </dl>
         <a class="rt-rera-official-link" href="https://maharerait.maharashtra.gov.in/project/view/63273" target="_blank" rel="noopener noreferrer">
           <i data-lucide="external-link" aria-hidden="true"></i> View Official MahaRERA Record
@@ -705,18 +693,7 @@
       </article>
 
       <div class="rt-rera-side">
-        <article class="rt-rera-disclosures">
-          <h3>Additional Disclosures</h3>
-          <div class="rt-rera-disclosure-grid">
-            <div><span>Promoter Name</span><strong>P. BUILDERS</strong></div>
-            <div><span>Building Summary</span><strong>No building summary details available</strong></div>
-            <div><span>Complaint Details</span><strong>No complaints filed</strong></div>
-            <div><span>Non-Compliance Details</span><strong>No non-compliance details recorded</strong></div>
-            <div><span>Warrants Issued</span><strong>No warrants issued</strong></div>
-            <div><span>Commencement Certificate</span><strong>VENUS GRANDEUR — CC issued up to Plinth</strong></div>
-          </div>
-          <p class="rt-rera-note">The information above is presented from the project disclosure details supplied for this website. Please refer to the official MahaRERA record for the latest statutory status.</p>
-        </article>
+        <article class="rt-rera-disclosures"><h3>Statutory Identifiers</h3><div class="rt-rera-disclosure-grid"><div><span>Promoter</span><strong>P. BUILDERS</strong></div><div><span>Environment Clearance (EC)</span><strong>SEIAA MH SIA/MH/INFRA2/574025/2026</strong></div><div><span>Commencement Certificate (CC)</span><strong>BMC CHE/CTY/1226/B/337(NEW)/CC</strong></div><div><span>Joint Venture</span><strong>ITG VPIL &amp; P. Builders</strong></div></div><p class="rt-rera-note">Refer to the official MahaRERA record for the latest statutory status.</p></article>
 
         <article class="rt-rera-qr-card">
           <a class="rt-rera-qr" href="https://maharerait.maharashtra.gov.in/project/view/63273" target="_blank" rel="noopener noreferrer" aria-label="Open official MahaRERA Venus Grandeur project record">
@@ -759,6 +736,7 @@
           <div class="rt-rera-actions"><a href="https://assets.rabbanitower.com/documents/cc_certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Additional CC Certificate in browser PDF viewer">View PDF</a><a class="rt-rera-download" href="https://assets.rabbanitower.com/documents/cc_certificate.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download Additional CC Certificate">Download <i data-lucide="download" aria-hidden="true"></i></a></div>
         </article>
       </div>
+<p class="rt-rera-note" style="margin-top:28px;line-height:1.8">All photographs, renderings, floor plans, layouts, specifications, facilities and amenities shown are conceptual and indicative, for illustrative purposes only. Actual designs, configurations, dimensions, areas, specifications and facilities may vary and are subject to the latest approved plans, statutory permissions and final project documentation. Verify against approved plans, MahaRERA disclosures and agreement documents before making any decision. © 2026 Rabbani Tower (Venus Grandeur).</p>
     </section>
   </div>
 </section>
@@ -900,9 +878,9 @@
                 <div>
                     <label class="block text-slate-300 mb-1 font-medium">Interested Configuration</label>
                     <select id="form-config" class="w-full px-4 py-2.5 rounded-lg bg-obsidian border border-slate-800 text-white focus:border-gold-500 outline-none">
-                        <option value="1BHK">1 BHK (510 / 536 / 559 sq. ft.)</option>
-                        <option value="2BHK">2 BHK (720 / 746 / 772 sq. ft.)</option>
-                        <option value="Combined">3 BHK Combined (1,230 / 1,294 / 1,308 sq. ft.)</option>
+                        <option value="1BHK">1 BHK (510 onwards sq. ft.)</option>
+                        <option value="2BHK">2 BHK (720 onwards sq. ft.)</option>
+                        <option value="Combined">3 BHK Combined (1,230 onwards sq. ft.)</option>
                         <option value="Commercial">Commercial Shop / Arcade Space</option>
                     </select>
                 </div>
@@ -972,7 +950,7 @@
             ]
           },
           '2bhk-c': {
-            area: '720 · 746 · 772',
+            area: '720 onwards',
             title: '2 Bedroom Residence',
             tag: 'Plan 4 · Right Living & Left Bedrooms',
             desc: 'A further two-bedroom alternate layout with living space to the right and bedrooms arranged on the left.',
@@ -1074,7 +1052,7 @@
 
             const dimensionsTitle = document.createElement('h4');
             dimensionsTitle.className = 'rt-mobile-plan-label';
-            dimensionsTitle.textContent = 'Room dimensions';
+            dimensionsTitle.textContent = '';
             const dimensions = document.createElement('dl');
             dimensions.className = 'rt-mobile-plan-dimensions';
             data.dimensions.forEach(([label, value]) => {
@@ -1089,7 +1067,7 @@
 
             const note = document.createElement('p');
             note.className = 'rt-mobile-plan-note';
-            note.textContent = 'Room dimensions are reproduced from the supplied floor-plan document. Final area and configuration should be verified against approved project documentation.';
+            note.textContent = 'Illustrative 3D layout view · Refer to approved plans for final specifications.';
             const enquiry = document.createElement('button');
             enquiry.type = 'button';
             enquiry.className = 'rt-mobile-plan-enquiry';
